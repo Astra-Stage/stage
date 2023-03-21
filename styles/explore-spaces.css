@@ -237,6 +237,13 @@
           brightness(126%) contrast(95%);
 }
 
+.state-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
 /* Places Cards */
 
 .places-cards-wrapper {
