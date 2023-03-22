@@ -49,3 +49,8 @@
         max-width: 20rem;
     }
 }
+
+/* TEMP PATCH =========================== */
+header {
+    display: none !important;
+}

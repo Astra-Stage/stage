@@ -191,3 +191,8 @@ main .main-menu-activity li {
         min-width: 40rem;
     }
 }
+
+/* TEMP PATCH =========================== */
+header {
+    display: none !important;
+}
