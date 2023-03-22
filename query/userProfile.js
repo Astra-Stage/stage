@@ -5,6 +5,7 @@ import { doc, setDoc, db } from '../modules/firebase.js'
 async function addProfile(userId, userInfo) {
     try {
         const userRef = doc(db, "USERS", userId);
+        console.log(userRef)
         const rsp = await setDoc(userRef, userInfo, { merge: true })
         console.log(rsp)
         
