@@ -22,13 +22,8 @@
                 "tagname": "photography-type-house"
             },
             {
-                "name": "Beach House",
-                "svg": "beach-house.svg",
-                "tagname": "photography-type-beach-house"
-            },
-            {
                 "name": "Cottage",
-                "svg": "Cottage.svg",
+                "svg": "CottageLM.svg",
                 "tagname": "photography-type-cottage"
             },
             {
