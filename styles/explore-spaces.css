@@ -142,7 +142,7 @@ main.explore-space-main {
     min-height: calc(100vh - var(--header-height));
     display: flex;
     flex-flow: column nowrap;
-    row-gap: 3rem;
+    row-gap: 1rem;
     /* transition: all 2s ease-in-out; */
 }
 
@@ -508,5 +508,13 @@ main.explore-space-main {
         margin: 0;
     }
 
-    
+    .btn-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+/* TEMP PATCH =========================== */
+header {
+    display: none !important;
 }
