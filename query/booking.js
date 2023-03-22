@@ -41,6 +41,8 @@ async function saveBookingInfo(bookingInfo) {
 // adds a the bookings id into the user profile =============================================> User Collection
 async function saveMyBooking(userId, bookingId) {
     try {
+        console.log(bookingId)
+        console.log(userId)
         const userRef = doc(db, "USERS", userId);
 
         const response = await updateDoc(userRef, {
