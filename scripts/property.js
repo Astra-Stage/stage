@@ -103,7 +103,7 @@ async function showPropertyDetails() {
   const imgSlider = document.getElementById("slider");
   imgSlider.innerHTML = "";
   propertyImages.forEach((link) => {
-    imgSlider.innerHTML += `<div class="slide" style="transform: translateX(0%);">
+    imgSlider.innerHTML += `<div class="slide">
           <img src="${link}" alt="">
       </div>`;
   });
