@@ -9,6 +9,14 @@ h1 {
     color: var(--accent-explore-space-dm);
 }
 
+h2 {
+    font-size: 1.5rem;
+}
+
+a > p {
+    text-align: right;
+}
+
 nav.desktop-nav li:not(:last-child)::before {
     background-color: var(--accent-explore-space-dm);
 }
@@ -102,11 +110,11 @@ main {
     grid-gap: 2rem;
 }
 
-.booking-space-card {
+/* .booking-space-card {
     max-width: 450px;
     height: 300px;
 
-}
+} */
 
 /* .booking-space-card {
     display: grid;
