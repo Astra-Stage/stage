@@ -4,6 +4,7 @@ import "/styles/my-bookings.css";
 
 // import queries
 import { getMyBookings, getBookingInfo} from "../query/booking";
+import { userState } from "../modules/user.js";
 
 // modules
 import { addOfflineSupport } from "../modules/offline";
@@ -44,7 +45,7 @@ async function init() {
 
 
 async function getAllBookingIds() {
-    const userId = localStorage.getItem("uid");
+    const userId = await userState();
     const allBookingIds = await getMyBookings(userId)
     return allBookingIds;
 }

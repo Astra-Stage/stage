@@ -7,6 +7,7 @@ import "/styles/booking-confirmation.css";
 import html2pdf from 'html2pdf.js';
 import { propertyFuncion } from "../query/propertylist.js";
 import { saveBookingInfo, getBookingInfo, saveMyBooking } from '../query/booking.js';
+import { userState } from "../modules/user.js";
 
 // modules
 import { addOfflineSupport } from "../modules/offline";
@@ -96,7 +97,8 @@ function registerConfirmBtn() {
     const confirmBtn = document.querySelector("#confirm-btn");
     confirmBtn.addEventListener("click", async () => {
         const bookingId = await saveBookingInfo(BOOKING_INFO);
-        const userId = localStorage.getItem("uid");
+        // const userId = localStorage.getItem("uid");
+        const userId  = await userState();
         const saveMyBookingRsp = await saveMyBooking(userId, bookingId)
         if (saveMyBookingRsp) {
             window.location.href = `${window.location.origin}/booking-confirmation-success.html`
