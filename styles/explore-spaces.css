@@ -518,4 +518,24 @@ main.explore-space-main {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
     }
+
+    /* HOVER STATES============== */
+    .additional-filters ul li:hover, .types-of-spaces label:hover {
+        color: var(--accent-explore-space-dm);
+    cursor: pointer;
+    }
+
+    .additional-filters ul li:hover label {
+        border: 1px solid var(--accent-explore-space-dm);
+    }
+
+    .additional-filters ul li:hover label img, .types-of-spaces label:hover img {
+        filter: invert(81%) sepia(40%) saturate(7316%) hue-rotate(213deg)
+    brightness(100%) contrast(102%);
+    }
+
+    input[type='range']:hover {
+        cursor: pointer;
+    }
 }
+
