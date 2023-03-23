@@ -134,8 +134,3 @@ main {
         grid-template-columns: repeat(3, 1fr);
     }
 }
-
-/* TEMP PATCH =========================== */
-header {
-    display: none !important;
-}

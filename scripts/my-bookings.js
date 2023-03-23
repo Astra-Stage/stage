@@ -1,6 +1,8 @@
 import "/styles/common-styles.css";
 import '/styles/offline-page.css';
 import "/styles/my-bookings.css";
+import '/styles/header.css';
+import './header.js'
 
 // import queries
 import { getMyBookings, getBookingInfo} from "../query/booking";
