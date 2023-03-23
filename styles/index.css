@@ -80,6 +80,11 @@ a {
   padding: 0;
 }
 
+.coming-soon {
+  color: #ea618c;
+  font-weight: bold;
+}
+
 /* Header-desktop view */
 @media screen and (min-width: 900px) {
   .desktop-nav {
