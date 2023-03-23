@@ -101,8 +101,3 @@ section h2 {
 
     border: none;
   }
-
-/* TEMP PATCH =========================== */
-header {
-    display: none !important;
-}
