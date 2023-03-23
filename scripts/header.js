@@ -10,15 +10,20 @@ const headerMenuBtn = document.querySelector("header .menu-button");
 
 headerMenuBtn.addEventListener("click", () => {
     const headerprofileWrapper = document.querySelector("header .profile-wrapper");
-
-    headerprofileWrapper.classList.toggle("hideMenu");    
-})
+    // first time
+    if(headerprofileWrapper.classList.contains("hide")) {
+        headerprofileWrapper.classList.remove('hide');
+        setTimeout(() => {
+            headerprofileWrapper.classList.toggle("hideMenu");
+        }, 100);
+    } else {
+        headerprofileWrapper.classList.toggle("hideMenu");
+    };
+});
 
 
 const crossBtn = document.querySelector("#cross-header-icon");
-
 crossBtn.addEventListener("click", () => {
     const headerprofileWrapper = document.querySelector("header .profile-wrapper");
-
     headerprofileWrapper.classList.toggle("hideMenu"); 
 })
