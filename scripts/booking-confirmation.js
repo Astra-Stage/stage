@@ -12,6 +12,9 @@ import { userState } from "../modules/user.js";
 // modules
 import { addOfflineSupport } from "../modules/offline";
 
+import '/styles/header.css';
+import './header.js'
+
 // Global Variables for the file
 let BOOKING_OBJ = undefined;
 const params = new URLSearchParams(document.location.search);

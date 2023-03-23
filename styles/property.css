@@ -410,8 +410,3 @@ main ul {
     flex: 1 0 100%;
   }
 }
-
-/* TEMP PATCH =========================== */
-header {
-  display: none !important;
-}

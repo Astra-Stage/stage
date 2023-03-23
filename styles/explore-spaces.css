@@ -179,6 +179,12 @@ main.explore-space-main {
 .additional-title {
     font-size: 1.5rem;
     font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+}
+
+.additional-filters-off ul li {
+    cursor: pointer;
 }
 
 .ad-fi-input-wrapper>div:first-of-type {
@@ -512,9 +518,4 @@ main.explore-space-main {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
     }
-}
-
-/* TEMP PATCH =========================== */
-header {
-    display: none !important;
 }

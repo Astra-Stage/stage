@@ -10,35 +10,88 @@
 
 <body>
 
-    <header class="site-header">
-        <div class="logo">
-          <a href="./index.html"
-            ><img src="../assets/svg-icons/Logo-White.svg"
-          /></a>
+  <header class="site-header">
+    <div class="logo-and-back">
+
+        <a class="logo-home-page hide" href="./index.html">
+
+            <img src="../assets/svg-icons/Logo-White.svg" />
+        </a>
+
+        <div class="back-btn-wrapper">
+            <button onclick="history.back()">
+                <i class="fa fa-chevron-left"></i>
+            </button>
         </div>
-        <nav class="mobile-nav">
-          <ul>
+    </div>
+    <nav class="mobile-nav">
+        <ul>
             <li>
-              <a href="#"><i class="fa-solid fa-bars"></i></a>
+                <button class="menu-button">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
             </li>
-          </ul>
-        </nav>
-        <nav class="desktop-nav">
-          <ul>
-            <li><a class="explore link-btn" href="#/explore.html">Explore</a></li>
-            <li><a class="showcase link-btn" href="#/showcase.html">Showcase</a></li>
-            <li><a class="list-space link-btn" href="#/list-my-space.html">List My Space</a></li>
-            <li><a class="btn-contact link-btn" href="#/contact.html">Contact Us</a></li>
-  
+        </ul>
+    </nav>
+    <nav class="desktop-nav">
+        <ul>
+            <li><a class="explore link-btn" href="#">Explore</a></li>
+            <li><a class="showcase link-btn" href="#">Showcase</a></li>
+            <li><a class="list-space link-btn" href="#">List My Space</a></li>
+            <li><a class="btn-contact link-btn" href="#">Contact Us</a></li>
+
             <li class="btn-profile">
-              <img
-                src="/assets/svg-icons//Profile White.svg"
-                alt="Profile Icon"
-              />
+                <img src="/assets/svg-icons//Profile White.svg" alt="Profile Icon" />
             </li>
-          </ul>
-        </nav>
-      </header>
+        </ul>
+    </nav>
+    <div class="profile-wrapper">
+        <div class="profile-header">
+            <nav class="profile-nav">
+                <ul>
+                    <li>
+                        <button id="cross-header-icon" class="menu-button">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="profile-main">
+            <div class="top-main">
+                <h1>Vaibhav Malhotra</h1>
+                <p>Personal Information</p>
+                <p><a href="./my-bookings.html">My Bookings</a></p>
+            </div>
+            <div class="middle-main">
+                <ul>
+                    <li><a href="./explore.html">Explore Spaces</a></li>
+                    <li><a href="./list-my-space.html">List My Space</a></li>
+                    <li><a href="./showcase.html">Showcase</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-main">
+            <button class="logOutBtn">Log Out</button>
+        </div>
+    </div>
+    <div class="desktop-profile hide">
+        <ul>
+            <li>
+                <a href="#">Personal Information</a>
+            </li>
+            <li>
+                <a href="./my-bookings.html">My Bookings</a>
+            </li>
+            <li>
+                <a href="./showcase.html">My Showcases</a>
+            </li>
+            <li>
+                <a id="logout-btn">Log Out</a>
+            </li>
+        </ul>
+    </div>
+</header>
 
     <main>
         <h1 class="page-title">My Bookings</h1>

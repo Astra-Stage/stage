@@ -1,6 +1,8 @@
 import "/styles/common-styles.css";
 import '/styles/offline-page.css';
 import "/styles/explore-spaces.css";
+import '/styles/header.css';
+import './header.js'
 
 // import utility functions
 import { tagnameToInfo, activitysubCatList } from "../utility/tagnameToInfo.js";
@@ -155,8 +157,11 @@ function registerFilterToggle() {
   const filterOff = document.getElementsByClassName(
     "additional-filters-off"
   )[0];
+
+  console.log(filterOff);
   filterOn.addEventListener("click", toggleAdditionalFilter);
   filterOff.addEventListener("click", toggleAdditionalFilter);
+
 }
 // register listeners on space type selection
 function registerSpaceTypeSelection() {
@@ -218,8 +223,8 @@ function toggleAdditionalFilter() {
 
   filterOff.classList.toggle("hide");
 
-  const mainNav = document.getElementsByClassName("index-nav")[0];
-  mainNav.classList.toggle("hide");
+  // const mainNav = document.getElementsByClassName("index-nav")[0];
+  // mainNav.classList.toggle("hide");
 
   const additionalFilters =
     document.getElementsByClassName("additional-filters")[0];
