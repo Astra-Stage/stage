@@ -49,6 +49,14 @@ section h2 {
     cursor: pointer;
 }
 
+.confirmed-booking-info ul li {
+    gap: 1.5rem;
+}
+
+.confirmed-booking-info ul li > span:nth-child(2) {
+    text-align: right;
+}
+
 /* grid, flex and spacing */
 
 .booking-information-wrapper {
