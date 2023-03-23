@@ -9,21 +9,88 @@
 </head>
 
 <body>
-  <header>
-    <nav class="index-nav">
+  <header class="site-header">
+    <div class="logo-and-back">
+
+      <a class="logo-home-page hide" href="./index.html">
+
+        <img src="../assets/svg-icons/Logo-White.svg" />
+      </a>
+
+      <div class="back-btn-wrapper">
+        <button
+          onclick="window.location.href = `${window.location.origin}/explore-spaces.html?activity=${localStorage.getItem('activity-type')}`">
+          <i class="fa fa-chevron-left"></i>
+        </button>
+      </div>
+    </div>
+    <nav class="mobile-nav">
       <ul>
         <li>
-          <button onclick="window.location.href = `${window.location.origin}/explore-spaces.html?activity=${localStorage.getItem('activity-type')}`">
-            <i class="fa fa-chevron-left"></i>
-          </button>
-        </li>
-        <li>
-          <button>
-            <i class="fa fa-bars"></i>
+          <button class="menu-button">
+            <i class="fa-solid fa-bars"></i>
           </button>
         </li>
       </ul>
     </nav>
+    <nav class="desktop-nav">
+      <ul>
+        <li><a class="explore link-btn" href="#">Explore</a></li>
+        <li><a class="showcase link-btn" href="#">Showcase</a></li>
+        <li><a class="list-space link-btn" href="#">List My Space</a></li>
+        <li><a class="btn-contact link-btn" href="#">Contact Us</a></li>
+
+        <li class="btn-profile">
+          <img src="/assets/svg-icons//Profile White.svg" alt="Profile Icon" />
+        </li>
+      </ul>
+    </nav>
+    <div class="profile-wrapper">
+      <div class="profile-header">
+        <nav class="profile-nav">
+          <ul>
+            <li>
+              <button id="cross-header-icon" class="menu-button">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="profile-main">
+        <div class="top-main">
+          <h1>Vaibhav Malhotra</h1>
+          <p>Personal Information</p>
+          <p><a href="./my-bookings.html">My Bookings</a></p>
+        </div>
+        <div class="middle-main">
+          <ul>
+            <li><a href="./explore.html">Explore Spaces</a></li>
+            <li><a href="./list-my-space.html">List My Space</a></li>
+            <li><a href="./showcase.html">Showcase</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="bottom-main">
+        <button class="logOutBtn">Log Out</button>
+      </div>
+    </div>
+    <div class="desktop-profile hide">
+      <ul>
+        <li>
+          <a href="#">Personal Information</a>
+        </li>
+        <li>
+          <a href="./my-bookings.html">My Bookings</a>
+        </li>
+        <li>
+          <a href="./showcase.html">My Showcases</a>
+        </li>
+        <li>
+          <a id="logout-btn">Log Out</a>
+        </li>
+      </ul>
+    </div>
   </header>
 
   <!-- Space Details -->
