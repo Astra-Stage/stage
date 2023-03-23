@@ -1404,6 +1404,11 @@ createPropertybtn.addEventListener("click", async (event) => {
     _media = [...urlStringArray];
   }
 
+  // parse _equipment info
+  // Remove Equipments with Price 0 to show or save in database
+  const equipmentWithPrices = _equipments.filter(obj => obj.price !== "0");
+
+
   async function property() {
     _uid = await userState();
     // Return the array as a Promise
@@ -1420,7 +1425,7 @@ createPropertybtn.addEventListener("click", async (event) => {
       _address, // Obj {street,flatroom,city,state,postalcode,country,_lat,_long}
       _typeofspace,
       _amenities, // Amenities[]
-      _equipments // Equip[{tagname, desc, price},{},{} ]
+      equipmentWithPrices // Equip[{tagname, desc, price},{},{} ]
     );
 
     // Add Property Info to Neo4j
@@ -1436,7 +1441,7 @@ createPropertybtn.addEventListener("click", async (event) => {
       _uid,
       _typeofspace,
       _amenities,
-      _equipments,
+      equipmentWithPrices,
       _activity,
       coordinates
     );
