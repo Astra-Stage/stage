@@ -829,18 +829,34 @@ details > summary {
   min-height: 15rem;
 }
 
+.calendar-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  padding: 0 var(--padding-3);
+  border: 1px solid var(--tertiary-text-dm);
+  border-radius: var(--border-radius-base);
+}
+
+.calendar-wrapper img {
+  width: 1.5rem;
+}
+
 #datepicker {
   text-align: center;
   font-family: "Fira Sans", sans-serif;
   font-size: var(--base-size);
-  padding: var(--padding-3);
-  border: 1px solid var(--tertiary-text-dm);
-  border-radius: var(--border-radius-base);
-  outline: none;
+  border: none;
+
   background-color: var(--primary-black);
   color: var(--primary-white);
   width: 100%;
 }
+
+/* #datepicker::placeholder {
+  text-align: left;
+} */
 
 /* PAGE 11 LAYOUT =============== */
 .dropdown-equipment {
