@@ -104,10 +104,10 @@ async function showPropertyDetails() {
 
   const imgSlider = document.getElementById("slider");
   imgSlider.innerHTML = "";
-  propertyImages.forEach((link) => {
-    imgSlider.innerHTML += `<div class="slide">
-          <img src="${link}" alt="">
-      </div>`;
+  propertyImages.forEach((link, idx) => {
+    imgSlider.innerHTML += 
+    `<div class="slide slide-${idx+1}" style="background-image: url(${link})">
+    </div>`;
   });
 
   // load bundle information
