@@ -76,29 +76,6 @@ main .main-menu-activity a h2 {
     transform: translate(-50%, -50%);
 }
 
-
-
-/* 
-main .main-menu-activity a {
-    display: block;
-    text-decoration: none;
-    text-align: center;
-    background-color: hotpink;
-    padding: 5rem;
-}
-
-
-main .main-menu-activity li {
-    width: 100%;
-    background-color: magenta;
-} */
-
-/* main .main-menu-activity li {
-    padding: 0;
-    width: 100%;
-    background-image: url("../assets/img/explore/musician.jpg");
-} */
-
 @media screen and (min-width: 900px) {
     main {
         display: flex;
@@ -171,10 +148,10 @@ main .main-menu-activity li {
         }
     }
 
-    main .main-menu-activity ul li:nth-child(1) img {
+    /* main .main-menu-activity ul li:nth-child(1) img {
         min-width: 50rem;
         transform: translate(-50%, -20%);
-    }
+    } */
 }
 
 /* TEMP PATCH =========================== */
