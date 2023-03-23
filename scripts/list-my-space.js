@@ -1001,15 +1001,13 @@ let _parking = false;
 let _airconditioner = false;
 
 const amenitiesWrapper = document.querySelectorAll(
-  ".div-amenities-buttons button"
+  ".amenities-buttons-wrapper button"
 );
 const amenitiesBtns = [...amenitiesWrapper];
 amenitiesBtns.forEach((btnElement) => {
   btnElement.addEventListener("click", (event) => {
     const target = event.target;
-
     const tagname = target.getAttribute("data-tagname");
-    // console.log(tagname)
     if (_amenities.includes(tagname)) {
       const removedArray = _amenities.filter(
         (selectedTags) => selectedTags != tagname
