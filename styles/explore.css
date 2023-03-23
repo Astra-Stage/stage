@@ -143,18 +143,6 @@ main .main-menu-activity li {
         height: 384px;
     }
 
-    main .main-menu-activity ul li img {
-        transition: all 2s ease;
-    }
-
-    main .main-menu-activity ul li:hover img {
-        /* transform: translateY(0.25%); */
-    }
-
-    /* main .main-menu-activity li:hover h2 {
-        animation: titleAnimation 2s infinite;
-    } */
-
     @keyframes titleAnimation {
         0% {
             color: white;
@@ -168,10 +156,6 @@ main .main-menu-activity li {
             color: white;
         }
     }
-
-    /* main .main-menu-activity li:hover a {
-        animation: overlayAnimation 2000ms infinite;
-    }  */
 
     @keyframes overlayAnimation {
         0% {
@@ -187,8 +171,9 @@ main .main-menu-activity li {
         }
     }
 
-    main .main-menu-activity ul li:nth-child(1) img, main .main-menu-activity ul li:nth-child(3) img {
-        min-width: 40rem;
+    main .main-menu-activity ul li:nth-child(1) img {
+        min-width: 50rem;
+        transform: translate(-50%, -20%);
     }
 }
 
