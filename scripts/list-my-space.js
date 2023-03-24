@@ -1465,3 +1465,11 @@ btnListings.addEventListener(
   "click",
   () => (window.location.href = window.origin)
 );
+
+
+// Patch to hide transition
+setTimeout(() => {
+  const headerprofileWrapper = document.querySelector("header .profile-wrapper");
+  console.log(headerprofileWrapper)
+  headerprofileWrapper.classList.remove("hide");
+}, 300);
