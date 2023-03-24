@@ -1,12 +1,25 @@
 /* Parent Container ======= */
 .login-dialog-wrapper {
   display: grid;
-  gap: 2rem;
+  gap: 1rem;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  /* gap: 2rem; */
 
   max-width: 500px;
-  margin: auto;
-  padding: 2rem 0;
+  height: 50vh;
+  margin: auto 0;
 }
+
+.divider {
+  display: none;
+}
+
+.login-alternative-wrapper p {
+  display: none;
+}
+
 /* Header ================= */
 header {
   max-width: 600px;
@@ -28,14 +41,23 @@ header nav a:hover {
   transform: translateY(-2px);
 }
 
+main {
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .logo-site {
-  padding: 4rem;
+  /* padding: 4rem; */
+  width: 5rem;
 }
 
 .login-dialog-header {
   display: flex;
   flex-flow: column nowrap;
-  align-items: flex-start;
+  align-items: center;
 
   line-height: 1.25;
 }
@@ -73,7 +95,7 @@ header nav a:hover {
 
 .login-alternative-wrapper {
   display: grid;
-  gap: 0.375rem;
+  gap: 1rem;
   text-align: center;
 }
 
