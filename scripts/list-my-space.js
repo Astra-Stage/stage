@@ -922,6 +922,7 @@ const geobtn = document.getElementById("geobtn");
 
 geobtn.addEventListener("click", async function (event) {
   // const test = await getPosition();
+  //navigator.geolocation.getCurrentPosition(success, error, { enableHighAccuracy: true });
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -973,7 +974,8 @@ geobtn.addEventListener("click", async function (event) {
         if (error.code == error.PERMISSION_DENIED) {
           window.alert("geolocation permission denied");
         }
-      }
+      },
+      { enableHighAccuracy: true } // High accuracy
     );
   } else {
     // no geolocation in navigator. in case running in an old browser
