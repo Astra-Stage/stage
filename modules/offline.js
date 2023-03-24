@@ -4,18 +4,22 @@ function addOfflineSupport () {
     const additionalFiltersWrapper = document.querySelector("body .additional-filters.hide");
 
     // common for all pages
-    const mainElement = document.getElementsByTagName("main")[0];
+    const mainElement = document.getElementsByClassName("content-wrapper")[0] == undefined ? document.getElementsByTagName("main")[0] : document.getElementsByClassName("content-wrapper")[0];
+
+
     const offlineElement = document.createElement("div");
     offlineElement.innerHTML =
     `<div class="offline-wrapper">
-        <img src="../assets/svg-icons/Asset 3.svg" alt="">
+        <img src="../assets/svg-icons/Logo-Offline.svg" alt="logo offline">
         <h1>Looks like you're Offline!</h1>
         <p>Please check your network settings!</p>
     </div>`
     offlineElement.classList.add("offline-page");
     offlineElement.classList.add("hide");
+
     const parentElement = mainElement.parentNode;
     parentElement.insertBefore(offlineElement, mainElement);
+
 
     window.addEventListener("online", () => {
 

@@ -432,10 +432,10 @@ main.explore-space-main {
 /* MEDIA QUERIES ==========================*/
 /* DESKTOP */
 @media screen and (min-width: 900px) {
-    body {
+    .content-wrapper {
         display: grid;
         grid-template-columns: 25rem 2fr;
-        column-gap: 1.5rem;
+        column-gap: 3rem;
 
         /* max-width: 75% !important; */
         margin: 0 auto;
@@ -476,7 +476,7 @@ main.explore-space-main {
         display: unset !important;
      }
 
-     body > .additional-filters {
+     .content-wrapper > .additional-filters {
         width: 25rem;
 
      }
