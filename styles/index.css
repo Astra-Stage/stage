@@ -205,9 +205,9 @@ a {
   width: 95%;
 
   position: absolute;
-  bottom: 5rem;
+  bottom: 1rem;
   right: 50%;
-  transform: translate(50%, -3rem);
+  transform: translate(50%, 0);
 }
 
 .tab {
