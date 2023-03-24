@@ -222,3 +222,10 @@ carouselSlide.addEventListener("transitionend", (e) => {
   }
   activeTab();
 });
+
+
+// Patch to hide transition
+setTimeout(() => {
+  const headerprofileWrapper = document.querySelector("header .profile-wrapper");
+  headerprofileWrapper.classList.remove("hide");
+}, 300);
