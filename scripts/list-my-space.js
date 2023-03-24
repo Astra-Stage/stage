@@ -806,32 +806,39 @@ nextvideo.addEventListener("click", (e) => {
 let featureImage = "";
 
 containerSelectedImg.addEventListener("click", (e) => {
-  const imageContainer = document.querySelectorAll(".img");
   let target = e.target;
-  // Store the feature Image
+  if (containerSelectedImg.hasChildNodes()) {
+    const imageContainer = document.querySelectorAll(".img");
+    // Store the feature Image
+    // Remove picture
+    if (target.tagName === "SPAN" || target.tagName === "I") {
+      let attr = target.closest(".img").getAttribute("data-set");
+      let selectedImg = target.closest(".img");
+      containerSelectedImg.removeChild(selectedImg);
 
-  featureImage = target.closest(".img").getAttribute("data-set");
-  console.log("Feature Image is!", featureImage);
-
-  // Remove all the feature image effect selection
-  imageContainer.forEach((img) => {
-    img.classList.remove("featureImg");
-  });
-  // Add the feature image effect to the target
-  target.closest(".img").classList.add("featureImg");
-
-  if (target.tagName === "SPAN" || target.tagName === "I") {
-    let attr = target.closest(".img").getAttribute("data-set");
-    containerSelectedImg.removeChild(target.closest(".img"));
-
-    files.forEach((file) => {
-      if (file.name === attr) {
-        console.log("Index", files.indexOf(file));
-        files.splice(files.indexOf(file), 1);
+      if (selectedImg.classList.contains("featureImg")) {
+        if (containerSelectedImg.firstElementChild) {
+          containerSelectedImg.firstElementChild.classList.add("featureImg");
+        }
       }
-    });
+
+      files.forEach((file) => {
+        if (file.name === attr) {
+          files.splice(files.indexOf(file), 1);
+        }
+      });
+    } else {
+      featureImage = target.closest(".img").getAttribute("data-set");
+      console.log("Feature Image is!", featureImage);
+      // Remove all the feature image effect selection
+      imageContainer.forEach((img) => {
+        img.classList.remove("featureImg");
+      });
+      // Add the feature image effect to the target
+      target.closest(".img").classList.add("featureImg");
+    }
+    console.log("Current File Array: ", files);
   }
-  console.log("Current File Array: ", files);
 });
 
 // Next Button in Page 6 (Selected files)
@@ -1408,8 +1415,7 @@ createPropertybtn.addEventListener("click", async (event) => {
 
   // parse _equipment info
   // Remove Equipments with Price 0 to show or save in database
-  const equipmentWithPrices = _equipments.filter(obj => obj.price !== "0");
-
+  const equipmentWithPrices = _equipments.filter((obj) => obj.price !== "0");
 
   async function property() {
     _uid = await userState();
