@@ -10,7 +10,7 @@ h1 {
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 a > p {
@@ -35,7 +35,7 @@ main {
     justify-content: center;
 }
 
-.booking-space-card img {
+.booking-space-card .booking-space-card-img {
     border-radius: var(--img-border-radius);
     min-width: 10rem;
     min-height: 100%;
@@ -53,8 +53,12 @@ main {
     font-size: 1.25rem;
 }
 
+.invoice-icon {
+    width: 1.4rem;
+}
+
 .booking-data {
-    font-size: 1rem;
+    font-size: .9rem;
 }
 
 .space-title a {
@@ -65,6 +69,8 @@ main {
 .booking-space-invoice-link {
     text-decoration: underline !important;
     color: var(--accent-explore-space-dm);
+    display: flex;
+    justify-content: flex-end;
 }
 
 /* .booking-space-card-title h2 {
@@ -87,7 +93,6 @@ main {
 }
 
 .booking-space-invoice-link {
-    padding-top: .5rem;
     flex-basis: 27%;
     align-self: flex-start;
 }

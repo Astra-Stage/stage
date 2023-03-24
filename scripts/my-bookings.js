@@ -73,14 +73,14 @@ function updateBookingDetails(allBookingInfo) {
 
         bookingsWrapper.innerHTML += `<div class="booking-space-card">
             <a href="/property.html?propertyId=${propertyId}">
-                <img src="${primaryPhoto}" alt="">
+                <img class="booking-space-card-img" src="${primaryPhoto}" alt="">
             </a>
             <div class="space-title">
                 <a class="booking-space-card-title" href="/property.html?propertyId=${propertyId}">
                     <h2>${propertyTitle}</h2>
                 </a>
                 <a class="booking-space-invoice-link" href="/booking-confirmation.html?bookingInfo=${bookingBase84}">
-                    <p>get invoice</p>
+                    <img class="invoice-icon" src="../assets/svg-icons/Invoice.svg" alt="invoice icon">
                 </a>
             </div>
             <div class="booking-details">
