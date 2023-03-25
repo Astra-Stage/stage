@@ -95,6 +95,10 @@ img {
   display: block;
 }
 
+::selection {
+  background: #434343;
+  color: var(--primary-black);
+}
 
 
 /* header styles ====================== 

@@ -13,7 +13,7 @@ h2 {
     font-size: 1.3rem;
 }
 
-a > p {
+a>p {
     text-align: right;
 }
 
@@ -35,14 +35,18 @@ main {
     justify-content: center;
 }
 
+.booking-space-card {
+    align-self: start;
+
+}
+
 .booking-space-card .booking-space-card-img {
     border-radius: var(--img-border-radius);
     min-width: 10rem;
     min-height: 100%;
-    object-fit: cover;
 }
 
-.booking-space-card > a {
+.booking-space-card>a {
     display: inline-block;
     height: 256px;
     overflow: hidden;
@@ -54,8 +58,10 @@ main {
 }
 
 .invoice-icon {
-    width: 1.4rem;
+    width: 2rem;
 }
+
+
 
 .booking-data {
     font-size: .9rem;
@@ -89,11 +95,10 @@ main {
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
-    grid-gap: 1rem;
 }
 
 .booking-space-invoice-link {
-    flex-basis: 27%;
+    flex-basis: 25%;
     align-self: flex-start;
 }
 
@@ -115,27 +120,19 @@ main {
     grid-gap: 2rem;
 }
 
-/* .booking-space-card {
-    max-width: 450px;
-    height: 300px;
-
-} */
-
-/* .booking-space-card {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: .4rem;
-} */
+.bookings-wrapper .booking-space-card {
+    flex-grow: 1;
+}
 
 @media screen and (min-width: 550px) {
     .bookings-wrapper {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-     }
+    }
 }
 
 @media screen and (min-width: 900px) {
-    .bookings-wrapper{
+    .bookings-wrapper {
         grid-template-columns: repeat(3, 1fr);
     }
 }

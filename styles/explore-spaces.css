@@ -31,13 +31,12 @@ main.explore-space-main {
     display: none;
 }
 
-.types-of-spaces input:checked + label {
+.types-of-spaces input:checked+label {
     color: var(--explore-text-color);
 }
 
-.types-of-spaces input:checked + label img {
-    filter: invert(81%) sepia(40%) saturate(7316%) hue-rotate(213deg)
-    brightness(100%) contrast(102%);
+.types-of-spaces input:checked+label img {
+    filter: invert(81%) sepia(40%) saturate(7316%) hue-rotate(213deg) brightness(100%) contrast(102%);
 }
 
 .types-of-spaces {
@@ -151,7 +150,8 @@ main.explore-space-main {
     list-style-type: none;
 }
 
-.additional-filters label, .additional-filters span {
+.additional-filters label,
+.additional-filters span {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -166,15 +166,15 @@ main.explore-space-main {
     width: 1.5rem;
     height: 1.5rem;
 
-    filter: invert(100%) sepia(1%) saturate(3888%) hue-rotate(80deg)
-    brightness(126%) contrast(95%);
+    filter: invert(100%) sepia(1%) saturate(3888%) hue-rotate(80deg) brightness(126%) contrast(95%);
 }
 
 /* Heading styles */
 
-.price-range-input input, .distance-range-input input {
+.price-range-input input,
+.distance-range-input input {
     width: 100%;
-} 
+}
 
 .additional-title {
     font-size: 1.5rem;
@@ -220,8 +220,7 @@ main.explore-space-main {
 }
 
 .additional-filters input[type="checkbox"]:checked+label img {
-    filter: invert(81%) sepia(40%) saturate(7316%) hue-rotate(213deg)
-    brightness(100%) contrast(102%);
+    filter: invert(81%) sepia(40%) saturate(7316%) hue-rotate(213deg) brightness(100%) contrast(102%);
 }
 
 .additional-filters ul li label:hover {
@@ -289,8 +288,7 @@ main.explore-space-main {
 
 /* TYPES OF SPACES ============================== */
 .types-of-spaces img {
-    filter: invert(100%) sepia(1%) saturate(3888%) hue-rotate(80deg)
-          brightness(126%) contrast(95%);
+    filter: invert(100%) sepia(1%) saturate(3888%) hue-rotate(80deg) brightness(126%) contrast(95%);
 }
 
 .state-wrapper {
@@ -393,6 +391,10 @@ main.explore-space-main {
     gap: 0.5rem;
 }
 
+.title-rating-wrapper .space-rating {
+    align-self: flex-start;
+}
+
 .cards .suggested-space {
     position: relative;
 }
@@ -400,20 +402,20 @@ main.explore-space-main {
 .cards .suggested-space .price {
     background-color: var(--white-opacity);
     position: absolute;
-  
+
     bottom: 1rem;
     right: 1rem;
-  
+
     color: var(--primary-black);
     padding: var(--padding-1) var(--padding-2);
     border-radius: var(--border-radius-base);
 }
-  
+
 .price p {
     font-weight: var(--fw-bold);
     font-size: 1rem;
 }
-    
+
 .title-rating-wrapper {
     display: flex;
     flex-flow: row nowrap;
@@ -430,6 +432,13 @@ main.explore-space-main {
 }
 
 /* MEDIA QUERIES ==========================*/
+/* TABLET  */
+@media screen and (min-width: 600px) {
+    .places-cards-wrapper ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 /* DESKTOP */
 @media screen and (min-width: 900px) {
     .content-wrapper {
@@ -439,9 +448,9 @@ main.explore-space-main {
 
         /* max-width: 75% !important; */
         margin: 0 auto;
-     }
-    
-     header {
+    }
+
+    header {
         grid-column: 1/-1;
 
         display: flex;
@@ -454,34 +463,34 @@ main.explore-space-main {
         /* position: fixed;
         width: 100%;
         z-index: 1; */
-     }
+    }
 
-     header .logo {
+    header .logo {
         width: 2rem;
         height: 2rem;
-     }
+    }
 
-     header .index-nav {
+    header .index-nav {
         display: none;
-     }
+    }
 
-     header .desktop-nav {
+    header .desktop-nav {
         display: unset;
 
         width: auto;
 
-     }
+    }
 
     .filter-wrapper-desktop {
         display: unset !important;
-     }
+    }
 
-     .content-wrapper > .additional-filters {
+    .content-wrapper>.additional-filters {
         width: 25rem;
 
-     }
-    
-     form.additional-filters {
+    }
+
+    form.additional-filters {
         min-height: auto;
         padding: 2rem 1rem;
 
@@ -493,18 +502,22 @@ main.explore-space-main {
 
 
         width: 25rem;
-        position: fixed;
-     }
+        /* position: fixed; */
+        position: sticky;
+        top: 1rem;
+        left: 0;
+    }
 
-     .places-cards-wrapper ul {
-        grid-template-columns: repeat(3, 1fr);
-     }
-    
-     .places-cards-wrapper ul li:first-child {
+    .places-cards-wrapper ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .places-cards-wrapper ul li:first-child {
         grid-column: span 2;
     }
 
-    .explore-search-field i, .explore-search-field .dot {
+    .explore-search-field i,
+    .explore-search-field .dot {
         display: none;
     }
 
@@ -520,22 +533,30 @@ main.explore-space-main {
     }
 
     /* HOVER STATES============== */
-    .additional-filters ul li:hover, .types-of-spaces label:hover {
+    .additional-filters ul li:hover,
+    .types-of-spaces label:hover {
         color: var(--accent-explore-space-dm);
-    cursor: pointer;
+        cursor: pointer;
     }
 
     .additional-filters ul li:hover label {
         border: 1px solid var(--accent-explore-space-dm);
     }
 
-    .additional-filters ul li:hover label img, .types-of-spaces label:hover img {
-        filter: invert(81%) sepia(40%) saturate(7316%) hue-rotate(213deg)
-    brightness(100%) contrast(102%);
+    .additional-filters ul li:hover label img,
+    .types-of-spaces label:hover img {
+        filter: invert(81%) sepia(40%) saturate(7316%) hue-rotate(213deg) brightness(100%) contrast(102%);
     }
 
     input[type='range']:hover {
         cursor: pointer;
     }
+
 }
 
+
+@media screen and (min-width: 1200px) {
+    .places-cards-wrapper ul {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

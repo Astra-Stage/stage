@@ -23,34 +23,42 @@
   max-width: 1100px;
   align-items: center;
   justify-content: center;
-  border-top: 2px solid var(--text-input-color);
-  margin: auto;
+  border-top: 2px solid var(--secondary-text-dm);
+  margin: 3rem auto 0 auto;
   padding: 0;
   width: 100%;
 }
+
+
 
 .wrapimgfooter {
   display: flex;
   flex-flow: row nowrap;
   justify-content: left;
   align-items: center;
-  padding: 1rem;
+  padding: 1.25rem 2rem;
 }
 
 .wrapimgfooter img {
   max-height: 3rem;
   max-width: 3rem;
+  filter: invert(55%) sepia(0%) saturate(0%) hue-rotate(324deg) brightness(89%) contrast(82%);
 }
 
-.divfooter h2 {
+.divfooter .logo-name {
   font-size: 3rem;
   padding: 0;
   margin: 0 0 0 1rem;
+  font-family: "Anton", sans-serif;
+  letter-spacing: 2px;
+  font-size: var(--h1-font-size);
+  color: var(--secondary-text-dm);
 }
 
 .divfooter p,
 .divfooter div {
   flex: 1 0 40%;
+  color: var(--secondary-text-dm);
 }
 
 .divfooter p {
@@ -111,11 +119,11 @@ h1.list-space-title {
   background-color: var(--text-input-color);
   border-radius: 100vh;
 } */
-
+/* 
 progress::-webkit-progress-value {
   background-color: var(--primary-black);
   border-radius: 100vh;
-}
+} */
 
 .progress {
   display: block;
@@ -125,6 +133,16 @@ progress::-webkit-progress-value {
   background-color: var(--text-input-color);
   border-radius: 100vh;
   border: 2px solid var(--text-input-color);
+}
+
+.progress::-webkit-progress-bar {
+  background-color: var(--primary-black);
+  border-radius: 100vh;
+}
+
+.progress::-webkit-progress-value {
+  background-color: var(--secondary-text-dm);
+  border-radius: 100vh;
 }
 
 * {
@@ -163,8 +181,7 @@ progress::-webkit-progress-value {
 }
 
 .selected img {
-  filter: invert(0%) sepia(90%) saturate(87%) hue-rotate(120deg)
-    brightness(106%) contrast(87%);
+  filter: invert(0%) sepia(90%) saturate(87%) hue-rotate(120deg) brightness(106%) contrast(87%);
 }
 
 .specialbuttons i {
@@ -258,8 +275,7 @@ progress::-webkit-progress-value {
 }
 
 #page1 .list-space-categories-buttons-wrapper button.selected img {
-  filter: invert(89%) sepia(67%) saturate(619%) hue-rotate(323deg)
-    brightness(106%) contrast(101%);
+  filter: invert(89%) sepia(67%) saturate(619%) hue-rotate(323deg) brightness(106%) contrast(101%);
 }
 
 /* PAGE 2 LAYOUT========================= */
@@ -269,11 +285,10 @@ button {
 }
 
 .filter-white {
-  filter: invert(100%) sepia(1%) saturate(3888%) hue-rotate(80deg)
-    brightness(126%) contrast(95%);
+  filter: invert(100%) sepia(1%) saturate(3888%) hue-rotate(80deg) brightness(126%) contrast(95%);
 }
 
-.list-space-categories-buttons-wrapper > * img {
+.list-space-categories-buttons-wrapper>* img {
   height: 4rem;
   width: 4rem;
 }
@@ -540,8 +555,7 @@ input::placeholder,
   border: none;
   width: 8rem;
   height: 8rem;
-  filter: invert(64%) sepia(1%) saturate(0%) hue-rotate(316deg) brightness(98%)
-    contrast(93%);
+  filter: invert(64%) sepia(1%) saturate(0%) hue-rotate(316deg) brightness(98%) contrast(93%);
   transition: all 0.25s ease;
   /* border-radius: 100vh;
   border: 5px solid var(--text-color); */
@@ -759,8 +773,7 @@ button.blackbutton {
 .wrap-title img {
   height: 2.25rem;
   width: 2.25rem;
-  filter: invert(100%) sepia(1%) saturate(3888%) hue-rotate(80deg)
-    brightness(126%) contrast(95%);
+  filter: invert(100%) sepia(1%) saturate(3888%) hue-rotate(80deg) brightness(126%) contrast(95%);
 }
 
 input[type="number"] {
@@ -787,7 +800,7 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: auto;
 }
 
-details > summary {
+details>summary {
   color: var(--accent-list-space-dm);
   cursor: pointer;
   list-style: none;
@@ -883,8 +896,7 @@ details > summary {
 }
 
 .dropdown-equipment img {
-  filter: invert(100%) sepia(1%) saturate(3888%) hue-rotate(80deg)
-    brightness(126%) contrast(95%);
+  filter: invert(100%) sepia(1%) saturate(3888%) hue-rotate(80deg) brightness(126%) contrast(95%);
   width: var(--icon-size-sm);
   height: var(--icon-size-sm);
 }
@@ -928,12 +940,9 @@ details > summary {
   border-color: var(--accent-list-space-dm);
 }
 
-.dropdown-equipment.selected:has(.checkbox:checked) > img {
-  filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%)
-    hue-rotate(0deg) brightness(100%) contrast(100%)
-    drop-shadow(0px 0px 0px #000000);
-  filter: invert(84%) sepia(30%) saturate(828%) hue-rotate(350deg)
-    brightness(106%) contrast(104%);
+.dropdown-equipment.selected:has(.checkbox:checked)>img {
+  filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%) drop-shadow(0px 0px 0px #000000);
+  filter: invert(84%) sepia(30%) saturate(828%) hue-rotate(350deg) brightness(106%) contrast(104%);
 }
 
 /* .dropdown-equipment.selected img {
@@ -1179,9 +1188,7 @@ fieldset {
   padding: 0;
   margin: 0;
   border: 0;
-  background: var(--text-color)
-    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="50"><path d="M17 25h16M67 25h16M75 17v16" fill="none" stroke="rgb(59,69,66)" stroke-width="2px" stroke-linecap="round" stroke-linejoin="round" /></svg>')
-    no-repeat 0 0;
+  background: var(--text-color) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="50"><path d="M17 25h16M67 25h16M75 17v16" fill="none" stroke="rgb(59,69,66)" stroke-width="2px" stroke-linecap="round" stroke-linejoin="round" /></svg>') no-repeat 0 0;
   background-position: center left;
   background-size: 5.1rem 2.5rem;
   overflow: hidden;
@@ -1272,6 +1279,7 @@ fieldset {
   .site-header {
     display: block;
   }
+
   /* footer hidden */
   .divfooter {
     display: flex;
@@ -1569,4 +1577,40 @@ fieldset {
   .page10 .navigation {
     z-index: 0;
   }
+}
+
+/* header final touch */
+.desktop-profile.scaleMenu li:nth-of-type(3),
+.desktop-nav li:nth-of-type(4),
+.desktop-profile.scaleMenu img {
+  display: none;
+}
+
+.desktop-profile.scaleMenu a {
+  padding: 0;
+}
+
+.desktop-profile.scaleMenu li:first-of-type a {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--secondary-text-dm);
+  cursor: unset;
+}
+
+.desktop-profile li:nth-of-type(2) a,
+.logOutBtn {
+  font-size: 1rem;
+  font-family: "Fira Sans", sans-serif;
+  color: var(--primary-white);
+  font-weight: normal;
+}
+
+nav.desktop-nav button {
+  font-weight: normal;
+}
+
+nav a {
+  font-weight: normal;
+  padding: 0;
 }

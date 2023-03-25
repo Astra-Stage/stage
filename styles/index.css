@@ -228,3 +228,30 @@ a {
   color: #101010;
   background-color: white;
 }
+
+/* header final touch */
+.desktop-profile.scaleMenu li:nth-of-type(3),
+.desktop-nav li:nth-of-type(4),
+.desktop-profile.scaleMenu img {
+  display: none;
+}
+
+.desktop-profile li:first-of-type a {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--secondary-text-dm);
+  cursor: unset;
+}
+
+.desktop-profile li:nth-of-type(2) a,
+.logOutBtn {
+  font-size: 1rem;
+  font-family: "Fira Sans", sans-serif;
+  color: var(--primary-white);
+  font-weight: normal;
+}
+
+nav.desktop-nav button {
+  font-weight: normal;
+}
