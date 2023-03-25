@@ -49,7 +49,7 @@ body {
   flex-flow: column nowrap;
   gap: 6.5rem;
 
-  color: #9e9e9e;
+  /* color: #9e9e9e; */
   margin-top: 5rem;
 }
 
@@ -69,7 +69,7 @@ body {
   border: none;
 
   color: #f8f8f8;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
 }
 
@@ -78,20 +78,22 @@ body {
 }
 
 /* Top Content User Name */
-.profile-main .top-main h1 {
+.profile-main .user-name {
   font-family: "Fira Sans";
   font-style: normal;
-  font-weight: 700;
-  font-size: 2.25rem;
-  color: #f8f8f8;
-
-  line-height: 1.5;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--secondary-text-dm);
+  line-height: 2;
   text-transform: none;
 }
 
-.profile-main .top-main p {
+.profile-main .top-main p a {
   font-size: 1.25rem;
+  font-weight: normal;
   line-height: 1.5;
+  color: var(--primary-white);
+  padding-left: 0;
 }
 
 /* Middle Content */
@@ -102,14 +104,19 @@ body {
   align-items: flex-start;
 }
 
-.profile-main .middle-main ul li {
+.profile-main .middle-main ul li a {
   font-size: 1.25rem;
+  font-weight: normal;
+  line-height: 1.5;
+  color: var(--primary-white);
+  padding-left: 0;
 }
 
 /* Bottom Main */
 .bottom-main {
   margin-top: auto;
 }
+
 .button-main button {
   font-weight: 700;
   cursor: pointer;
@@ -139,6 +146,7 @@ body {
 .scaleMenu {
   transform: scale(1);
 }
+
 .desktop-profile ul {
   display: flex;
   flex-flow: column nowrap;
@@ -164,12 +172,16 @@ body {
 .desktop-profile img {
   width: 2rem;
   height: 2rem;
-  filter: invert(100%) sepia(98%) saturate(4%) hue-rotate(231deg)
-    brightness(120%) contrast(95%);
+  filter: invert(100%) sepia(98%) saturate(4%) hue-rotate(231deg) brightness(120%) contrast(95%);
 }
 
 @media screen and (min-width: 900px) {
   .hideMenu {
     transform: translateX(100%);
   }
+}
+
+/* final touch to mobile-view navigation */
+.profile-main .top-main p:first-of-type {
+  display: none;
 }
