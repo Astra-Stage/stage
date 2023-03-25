@@ -153,7 +153,7 @@ nav.desktop-nav li:not(:last-child)::before {
   border: none;
 
   color: #f8f8f8;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   cursor: pointer;
 }
 
@@ -238,4 +238,32 @@ nav.desktop-nav button {
   border: 1px solid #f8f8f8;
   border-radius: 0.5rem;
   border-top-right-radius: 0;
+}
+
+/* Top Content User Name */
+.profile-main .user-name {
+  font-family: "Fira Sans";
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--secondary-text-dm);
+  line-height: 2;
+  text-transform: none;
+}
+
+.profile-main .top-main>p:nth-of-type(1) {
+  display: none;
+}
+
+.profile-main .top-main p a {
+  font-size: 1.25rem;
+  font-weight: normal;
+  line-height: 1.5;
+  color: var(--primary-white);
+  padding-left: 0;
+}
+
+.profile-main .middle-main a {
+  color: var(--primary-white);
+  font-size: 1.25rem;
 }
