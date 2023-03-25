@@ -552,16 +552,11 @@ main.explore-space-main {
         cursor: pointer;
     }
 
-    <<<<<<< HEAD
 }
 
-=======
-}
 
 @media screen and (min-width: 1200px) {
     .places-cards-wrapper ul {
         grid-template-columns: repeat(3, 1fr);
     }
 }
-
->>>>>>>master
