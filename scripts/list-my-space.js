@@ -17,6 +17,7 @@ import {
   uploadAllFiles,
   files,
   uploadFiles2,
+  base64ToFiles
 } from "../utility/pictures-api";
 // import { userId } from "../utility/getuserid.js";
 import { SaveURLtoFirestore } from "/query/imagecreate.js";
@@ -30,6 +31,10 @@ import * as L from "../node_modules/leaflet/dist/leaflet.js";
 // modules
 import { addOfflineSupport } from "../modules/offline";
 addOfflineSupport();
+
+// GLOBAL VARIABLES
+const FILES_AS_BASE64 = [];
+
 
 /////////////// HEADER MENUS DESKTOP AND MOBILE
 // Geolocation
@@ -157,10 +162,25 @@ function navigateToPage(event) {
       back.style.display = "block";
     });
     pageTitle.style.display = "none";
+
     if (pageId === "#page1") {
       pageTitle.style.display = "block";
       navigationPage1.style.display = "flex";
       page1.style.display = "block";
+      page2.style.display = "none";
+      page3.style.display = "none";
+      page4.style.display = "none";
+      page5.style.display = "none";
+      page6.style.display = "none";
+      page7.style.display = "none";
+      page9.style.display = "none";
+      page10.style.display = "none";
+      page11.style.display = "none";
+      page12.style.display = "none";
+      page13.style.display = "none";
+    } else if (pageId === "#page2") {
+      page1.style.display = "none";
+      page2.style.display = "block";
       page3.style.display = "none";
       page4.style.display = "none";
       page5.style.display = "none";
@@ -173,6 +193,7 @@ function navigateToPage(event) {
       page13.style.display = "none";
     } else if (pageId === "#page3") {
       page1.style.display = "none";
+      page2.style.display = "none";
       page3.style.display = "block";
       page4.style.display = "none";
       page5.style.display = "none";
@@ -185,6 +206,7 @@ function navigateToPage(event) {
       page13.style.display = "none";
     } else if (pageId === "#page4") {
       page1.style.display = "none";
+      page2.style.display = "none";
       page3.style.display = "none";
       page4.style.display = "block";
       page5.style.display = "none";
@@ -197,6 +219,7 @@ function navigateToPage(event) {
       page13.style.display = "none";
     } else if (pageId === "#page5") {
       page1.style.display = "none";
+      page2.style.display = "none";
       page3.style.display = "none";
       page4.style.display = "none";
       page5.style.display = "block";
@@ -209,6 +232,7 @@ function navigateToPage(event) {
       page13.style.display = "none";
     } else if (pageId === "#page6") {
       page1.style.display = "none";
+      page2.style.display = "none";
       page3.style.display = "none";
       page4.style.display = "none";
       page5.style.display = "none";
@@ -221,6 +245,7 @@ function navigateToPage(event) {
       page13.style.display = "none";
     } else if (pageId === "#page7") {
       page1.style.display = "none";
+      page2.style.display = "none";
       page3.style.display = "none";
       page4.style.display = "none";
       page5.style.display = "none";
@@ -233,6 +258,7 @@ function navigateToPage(event) {
       page13.style.display = "none";
     } else if (pageId === "#page9") {
       page1.style.display = "none";
+      page2.style.display = "none";
       page3.style.display = "none";
       page4.style.display = "none";
       page5.style.display = "none";
@@ -245,6 +271,7 @@ function navigateToPage(event) {
       page13.style.display = "none";
     } else if (pageId === "#page10") {
       page1.style.display = "none";
+      page2.style.display = "none";
       page3.style.display = "none";
       page4.style.display = "none";
       page5.style.display = "none";
@@ -257,6 +284,7 @@ function navigateToPage(event) {
       page13.style.display = "none";
     } else if (pageId === "#page11") {
       page1.style.display = "none";
+      page2.style.display = "none";
       page3.style.display = "none";
       page4.style.display = "none";
       page5.style.display = "none";
@@ -269,6 +297,7 @@ function navigateToPage(event) {
       page13.style.display = "none";
     } else if (pageId === "#page12") {
       page1.style.display = "none";
+      page2.style.display = "none";
       page3.style.display = "none";
       page4.style.display = "none";
       page5.style.display = "none";
@@ -281,6 +310,7 @@ function navigateToPage(event) {
       page13.style.display = "none";
     } else if (pageId === "#page13") {
       page1.style.display = "none";
+      page2.style.display = "none";
       page3.style.display = "none";
       page4.style.display = "none";
       page5.style.display = "none";
@@ -322,6 +352,7 @@ function navigateToPage(event) {
       pageTitle.style.display = "block";
       navigationPage1.style.display = "none";
       page1.style.display = "block";
+      page2.style.display = "none";
       page3.style.display = "block";
       page4.style.display = "none";
       page5.style.display = "none";
@@ -335,6 +366,7 @@ function navigateToPage(event) {
       progressPageDesktop13.style.display = "block";
     } else if (pageId === "#page3") {
       page1.style.display = "block";
+      page2.style.display = "none";
       page3.style.display = "block";
       page4.style.display = "none";
       page5.style.display = "none";
@@ -345,7 +377,22 @@ function navigateToPage(event) {
       page11.style.display = "none";
       page12.style.display = "none";
       page13.style.display = "none";
-    } else if (
+    } 
+    else if (pageId === "#page2") {
+      page1.style.display = "none";
+      page2.style.display = "block";
+      page3.style.display = "none";
+      page4.style.display = "none";
+      page5.style.display = "none";
+      page6.style.display = "none";
+      page7.style.display = "none";
+      page9.style.display = "none";
+      page10.style.display = "none";
+      page11.style.display = "none";
+      page12.style.display = "none";
+      page13.style.display = "none";
+    }
+    else if (
       pageId === "#page4" ||
       pageId === "#page5" ||
       pageId === "#page6"
@@ -368,6 +415,7 @@ function navigateToPage(event) {
       page12.style.display = "none";
       page13.style.display = "none";
     } else if (pageId === "#page7") {
+      page2.style.display = "none";
       page1.style.display = "none";
       page3.style.display = "none";
       page4.style.display = "none";
@@ -380,6 +428,7 @@ function navigateToPage(event) {
       page12.style.display = "none";
       page13.style.display = "none";
     } else if (pageId === "#page9") {
+      page2.style.display = "none";
       page1.style.display = "none";
       page3.style.display = "none";
       page4.style.display = "none";
@@ -393,6 +442,7 @@ function navigateToPage(event) {
       page13.style.display = "none";
     } else if (pageId === "#page10") {
       page1.style.display = "none";
+      page2.style.display = "none";
       page3.style.display = "none";
       page4.style.display = "none";
       page5.style.display = "none";
@@ -405,6 +455,7 @@ function navigateToPage(event) {
       page13.style.display = "none";
     } else if (pageId === "#page11") {
       page1.style.display = "none";
+      page2.style.display = "none";
       page3.style.display = "none";
       page4.style.display = "none";
       page5.style.display = "none";
@@ -417,6 +468,7 @@ function navigateToPage(event) {
       page13.style.display = "none";
     } else if (pageId === "#page12") {
       page1.style.display = "none";
+      page2.style.display = "none";
       page3.style.display = "none";
       page4.style.display = "none";
       page5.style.display = "none";
@@ -429,6 +481,7 @@ function navigateToPage(event) {
       page13.style.display = "none";
     } else if (pageId === "#page13") {
       page1.style.display = "none";
+      page2.style.display = "none";
       page3.style.display = "none";
       page4.style.display = "none";
       page5.style.display = "none";
@@ -672,7 +725,9 @@ addressvalidation.addEventListener("click", (e) => {
   console.log(validatepage);
   if (validatepage) {
     e.preventDefault();
-    window.location.href = `${window.location.origin}/list-my-space.html#page4`;
+    window.location.href = `${window.location.origin}/list-my-space.html#page2`;
+
+    console.log('take me to page 2')
   } else {
     e.preventDefault();
     window.location.href = `${window.location.origin}/list-my-space.html#page3`;
@@ -789,15 +844,15 @@ const addphoto2 = document.getElementById("imageSelect");
 let photosCamera = true;
 const backCameraBtn = document.getElementById("backToPhotos");
 
-backCameraBtn.addEventListener("click", (e) => {
-  if (!photosCamera) {
-    window.location.href = `${window.location.origin}/list-my-space.html#page6`;
-    e.preventDefault();
-  } else {
-    window.location.href = `${window.location.origin}/list-my-space.html#page5`;
-    e.preventDefault();
-  }
-});
+// backCameraBtn.addEventListener("click", (e) => {
+//   if (!photosCamera) {
+//     window.location.href = `${window.location.origin}/list-my-space.html#page6`;
+//     e.preventDefault();
+//   } else {
+//     window.location.href = `${window.location.origin}/list-my-space.html#page5`;
+//     e.preventDefault();
+//   }
+// });
 
 nextvideo.addEventListener("click", (e) => {
   photosCamera = true;
@@ -1408,10 +1463,18 @@ const createPropertybtn = document.getElementById("createPropertybtn");
 createPropertybtn.addEventListener("click", async (event) => {
   console.log("Files: ", files);
 
-  if (!camera) {
-    const urlStringArray = await uploadFiles2(files);
-    _media = [...urlStringArray];
-  }
+  // if (!camera) {
+  //   const urlStringArray = await uploadFiles2(files);
+  //   _media = [...urlStringArray];
+  // }
+
+  const allFiles = base64ToFiles(FILES_AS_BASE64);
+  const urlStringArray = await uploadFiles2(allFiles);
+  _media = [...urlStringArray];
+
+
+
+
 
   // parse _equipment info
   // Remove Equipments with Price 0 to show or save in database
@@ -1478,6 +1541,251 @@ btnListings.addEventListener(
 // Patch to hide transition
 setTimeout(() => {
   const headerprofileWrapper = document.querySelector("header .profile-wrapper");
-  console.log(headerprofileWrapper)
   headerprofileWrapper.classList.remove("hide");
 }, 300);
+
+
+
+
+// Update GRID PAGE 2
+
+const toBase64 = file => new Promise((resolve, reject) => {
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = () => resolve(reader.result);
+  reader.onerror = error => reject(error);
+});
+
+const uploadButton = document.getElementById("upload-img-page-2");
+uploadButton.addEventListener("change", async (event) => {
+  console.log(event.target);
+
+  const allImages = [...uploadButton.files];
+
+  // validation to do nothing
+  if(!allImages.length) return;
+
+
+  const totalLength = FILES_AS_BASE64.length + allImages.length;
+
+  if(totalLength > 5) {
+    alert("Maximum allowed images is 5")
+    return
+  }
+
+
+  for(let i = 0; i < allImages.length; i++) {
+    let x  = await toBase64(allImages[i])
+    FILES_AS_BASE64.push(x)
+  }
+  console.log(FILES_AS_BASE64)
+  // convert base64
+
+  infuseImages(FILES_AS_BASE64)
+})
+
+
+
+function infuseImages(base64List) {
+  const gridWrapper = document.querySelector(".images-grid-wrapper");
+  // gridWrapper.classList.remove("hide");
+  gridWrapper.innerHTML = "";
+
+  base64List.forEach((base64, idx) => {
+
+      if(idx == 0) {
+        gridWrapper.innerHTML += `<div class="page2-img-container feature-img-container" data-img-idx=${idx} style="background-image: url(${base64})" >
+        <span class="cross-page2" data-img-idx-cross=${idx}  >X</span>
+        </div>`
+      } else {
+        gridWrapper.innerHTML += `<div class="page2-img-container" data-img-idx=${idx} style="background-image: url(${base64})" >
+        <span class="cross-page2" data-img-idx-cross=${idx} >X</span>
+        </div>`
+      }
+
+  })
+
+}
+
+
+
+// camera streamer event listener
+const cameraStreamerBtn = document.getElementById("camera-stremer");
+cameraStreamerBtn.addEventListener("click", () => {
+  const gridDisplay = document.querySelector(".images-wrapper");
+  const actionBtns = document.querySelector(".page2-action-btns");
+  gridDisplay.classList.add("hide");
+  actionBtns.classList.add("hide");
+
+
+  // show streamer
+
+  const streamer = document.querySelector(".camera-streamer");
+  streamer.classList.remove("hide");
+
+  streamMyCamera();
+
+})
+
+// ===============================> Change Feature Image Event Listeners and Handle Cross
+
+const gridWrapper = document.querySelector(".images-grid-wrapper");
+gridWrapper.addEventListener("click", (event) => {
+  // if image div is target
+  const target = event.target;
+  if(target.classList.contains("page2-img-container")) {
+    const idx = Number(target.getAttribute("data-img-idx"));
+    if(idx === 0) return;
+    
+    // change the positions in the array then infuse the list again
+    FILES_AS_BASE64.unshift(FILES_AS_BASE64.splice(idx, 1)[0]);
+    infuseImages(FILES_AS_BASE64)
+  }
+
+  // handle cross event
+  if(target.classList.contains("cross-page2")) {
+    const idx = Number(target.getAttribute("data-img-idx-cross"));
+    FILES_AS_BASE64.splice(idx, 1)[0];
+    infuseImages(FILES_AS_BASE64);
+  }
+})
+
+
+
+// ================================> Mobile Camera Event Listeners
+
+const mobileCameraPhoto = document.getElementById("mobile-app-camera");
+mobileCameraPhoto.addEventListener("change", async () => {
+
+  if(FILES_AS_BASE64.length == 5) {
+    alert("Maximum allowed images is 5")
+  }
+
+  const files = mobileCameraPhoto.files;
+
+
+  const gridWrapper = document.querySelector(".images-grid-wrapper");
+  gridWrapper.innerHTML = "";
+  
+  gridWrapper.innerHTML += files
+
+  // push it
+  let imageBase64  = await toBase64(files[0])
+  FILES_AS_BASE64.push(imageBase64)
+  
+
+  // infuse in html
+  infuseImages(FILES_AS_BASE64)
+})
+
+
+// ================================> Desktop Camera Event Listeners
+
+// user picture event
+const usePicture = document.querySelector("#use-picture");
+usePicture.addEventListener("click", () => {
+
+  // show image container
+  const gridDisplay = document.querySelector(".images-wrapper");
+  const actionBtns = document.querySelector(".page2-action-btns");
+  gridDisplay.classList.remove("hide");
+  actionBtns.classList.remove("hide");
+
+  // show streamer
+  const streamer = document.querySelector(".camera-streamer");
+  streamer.classList.add("hide");
+
+  toggleImageState();
+
+
+  // ? INFUSE IMAGES AGAIN
+  // append the clicked image to files list
+  const clickedBase64 = (document.querySelector(".display-clicked-image")).src
+  FILES_AS_BASE64.push(clickedBase64);
+  infuseImages(FILES_AS_BASE64)
+})
+
+
+
+// capture button event
+
+
+const captureButtonPage2 = document.querySelector("#capture-btn-page2");
+
+// Capture the picture when the button is clicked
+captureButtonPage2.addEventListener("click", () => {
+
+  // return if already has 5 photos
+  if(FILES_AS_BASE64.length === 5) {
+    alert("Maximum Photos allowed are 5");
+    return;
+  }
+
+
+  const video = document.querySelector(".camera-streamer-video-player");
+  // Create a canvas element to capture the image
+  const canvas = document.createElement("canvas");
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  canvas
+    .getContext("2d")
+    .drawImage(video, 0, 0, canvas.width, canvas.height);
+
+  // display captured image
+  displayCapturedImage(canvas)
+});
+
+
+function streamMyCamera() {
+  const video = document.querySelector(".camera-streamer-video-player");
+    
+    // Check if the browser supports the camera API
+  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    // Set up the camera stream
+    navigator.mediaDevices
+      .getUserMedia({ video: true })
+      .then((stream) => {
+        // Attach the camera stream to the video element
+        video.srcObject = stream;
+        video.play();
+
+      })
+      .catch((error) => {
+        console.error("Error accessing camera:", error);
+      });
+  } else {
+    console.error("Camera not supported by this browser");
+  }
+}
+
+
+function displayCapturedImage(canvas) {
+  const previewImage = document.querySelector(".display-clicked-image");
+  // Convert the canvas image to a data URL and display it in the preview element
+  previewImage.src = canvas.toDataURL("image/png");
+  previewImage.style.display = "block";
+  photoList = previewImage.src;
+
+  // clicked image state
+  toggleImageState()
+}
+
+
+function toggleImageState() {
+  // activate use photo button
+  const actionBtnWrapper = (document.querySelector(".camera-streamer-btns")).children;
+  const actionBtnArray = [...actionBtnWrapper]
+
+
+  actionBtnArray.forEach(elem => {
+    elem.classList.toggle("hide")
+  })
+
+  // display clicked photo
+  const videoWrapper = (document.querySelector(".display-wrapper-camera-streamer")).children;
+
+  const videoWrapperElements = [...videoWrapper];
+  videoWrapperElements.forEach(elem => {
+    elem.classList.toggle("hide")
+  })
+}
