@@ -1614,3 +1614,148 @@ nav a {
   font-weight: normal;
   padding: 0;
 }
+
+/* Update Grid page 2 */
+
+/* .images-grid-wrapper {
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+}
+
+.page2-img-container {
+  height: 10rem;
+  min-width: 22%;
+  background-size: cover;
+}
+
+.feature-img-container {
+  grid-column: 1/-1;
+  grid-row: 1/2;
+  height: 15rem;
+} */
+
+.images-grid-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.5rem;
+}
+
+.page2-img-container {
+  flex: 1 0 20%;
+  min-height: 10rem;
+  background-size: cover;
+}
+
+.page2-img-container {
+  position: relative;
+}
+
+
+.page2-img-container.feature-img-container:before {
+  position: absolute;
+  content: "Feature Image";
+  top: 1rem;
+  left: 1rem;
+  color: white;
+  padding: 0.5rem;
+  border: 2px solid white;
+  border-radius: 0.5rem;
+  background-color: rgba(16, 16, 16, 0.8);
+  z-index: 10;
+}
+
+
+.page2-img-container .cross-page2 {
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: black;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: white;
+  border: 1px solid white;
+  border-radius: 100vh;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-img-container {
+  flex: 1 0 90%;
+  min-height: 15rem;
+  background-size: cover;
+}
+
+.inner-wrapper-2 {
+  padding: 1rem;
+}
+
+.page2-action-btns {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 1rem;
+}
+
+.navigation-page2-btns, .image-action-btns {
+  flex: 1 0 45%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.image-action-btns{
+  flex: 1 0 45%;
+  gap: 1rem;
+}
+
+.navigation-page2-btns a{
+  flex: 1 0 100%;
+}
+
+/* Display picture styles */
+
+.display-clicked-image {
+
+    width: 20rem;
+    height: 20rem;
+
+}
+
+.camera-streamer {
+  width: 20rem;
+  height: 20rem;
+}
+
+
+label[for="upload-img-page-2"], label[for="mobile-app-camera"] {
+  text-align: center;
+  font-family: "Fira Sans", sans-serif;
+  font-size: var(--base-size);
+  padding: var(--padding-3);
+  border: 1px solid var(--tertiary-text-dm);
+  border-radius: var(--border-radius-base);
+  outline: none;
+  background-color: var(--primary-black);
+  color: var(--primary-white);
+  width: 100%;
+}
+
+
+label[for="mobile-app-camera"] {
+  display: none;
+}
+
+
+@media screen and (max-width: 900px) {
+  label[for="mobile-app-camera"] {
+      display: unset;
+  }
+
+  #camera-stremer {
+    display: none;
+  }
+
+}
