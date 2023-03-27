@@ -194,6 +194,39 @@ async function cameraUpload(img, name) {
     }
   );
 }
+
+
+// Converts a list of base64 string to files
+function base64ToFiles(base64list) {
+  const filesList = base64list.map((base64String, idx) => {
+    const parts = base64String.split(';base64,');
+    const contentType = parts[0].split(':')[1];
+  
+    // Determine the file extension based on the content type
+    // const extension = mime.extension(contentType);
+    const extension = contentType.match(/\/(.+)/)[1];
+
+    const binaryData = atob(parts[1]);
+    const uint8Array = new Uint8Array(binaryData.length);
+    for (let i = 0; i < binaryData.length; i++) {
+      uint8Array[i] = binaryData.charCodeAt(i);
+    }
+
+    const fileName = `image-${Date.now()}-${idx}.${extension}`;
+
+    const blob = new Blob([uint8Array], { type: contentType });
+    const file = new File([blob], fileName, { type: contentType });
+
+    return file;
+  })
+
+  return filesList;
+}
+
+
+
+
+
 export {
   input,
   UploadProcess,
@@ -202,4 +235,5 @@ export {
   uploadAllFiles,
   files,
   uploadFiles2,
+  base64ToFiles
 };
