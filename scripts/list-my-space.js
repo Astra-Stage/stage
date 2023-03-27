@@ -1789,3 +1789,24 @@ function toggleImageState() {
     elem.classList.toggle("hide")
   })
 }
+
+
+// =====================================> Review Image Page
+
+window.addEventListener("hashchange", (event) => {
+
+  if(window.location.hash === "#page12") {
+    const previewImageGrid = document.querySelector(".wrap-img-page12");
+    previewImageGrid.innerHTML = "";
+
+    FILES_AS_BASE64.forEach((base64, idx) => {
+      if(idx == 0) {
+        previewImageGrid.innerHTML += `<div class="page12-img-container feature-img-page12" data-img-idx=${idx} style="background-image: url(${base64})" ></div>`
+      } else {
+        previewImageGrid.innerHTML += `<div class="page12-img-container" data-img-idx=${idx} style="background-image: url(${base64})" ></div>`
+      }
+    })
+
+  }
+
+});
