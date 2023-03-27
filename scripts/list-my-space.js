@@ -7,7 +7,7 @@ import "../styles/profile.css";
 
 import { createProperty } from "/query/propertycreate.js";
 import { equipmentFormParser } from "../utility/equipmentFormParser.js";
-import { rightslide, leftslide, counter } from "../utility/imageSlider";
+// import { rightslide, leftslide} from "../utility/imageSlider";
 import { userState } from "../modules/user.js";
 import {
   input,
@@ -17,7 +17,7 @@ import {
   uploadAllFiles,
   files,
   uploadFiles2,
-  base64ToFiles
+  base64ToFiles,
 } from "../utility/pictures-api";
 // import { userId } from "../utility/getuserid.js";
 import { SaveURLtoFirestore } from "/query/imagecreate.js";
@@ -34,7 +34,7 @@ addOfflineSupport();
 
 // GLOBAL VARIABLES
 const FILES_AS_BASE64 = [];
-
+let size;
 
 /////////////// HEADER MENUS DESKTOP AND MOBILE
 // Geolocation
@@ -377,8 +377,7 @@ function navigateToPage(event) {
       page11.style.display = "none";
       page12.style.display = "none";
       page13.style.display = "none";
-    } 
-    else if (pageId === "#page2") {
+    } else if (pageId === "#page2") {
       page1.style.display = "none";
       page2.style.display = "block";
       page3.style.display = "none";
@@ -391,8 +390,7 @@ function navigateToPage(event) {
       page11.style.display = "none";
       page12.style.display = "none";
       page13.style.display = "none";
-    }
-    else if (
+    } else if (
       pageId === "#page4" ||
       pageId === "#page5" ||
       pageId === "#page6"
@@ -727,7 +725,7 @@ addressvalidation.addEventListener("click", (e) => {
     e.preventDefault();
     window.location.href = `${window.location.origin}/list-my-space.html#page2`;
 
-    console.log('take me to page 2')
+    console.log("take me to page 2");
   } else {
     e.preventDefault();
     window.location.href = `${window.location.origin}/list-my-space.html#page3`;
@@ -1280,25 +1278,25 @@ nextpage10to11.addEventListener("click", () => {
     window.location.href = "/list-my-space.html#page11";
   }
 });
-let carouselImages = document.querySelectorAll(".wrap-img-page12 .imgCar");
+
 // Review info and setting values to create a property
 
 reviewfieldsbtn.addEventListener("click", () => {
-  const carouselSlide = document.querySelector(".wrap-img-page12");
-  carouselImages = document.querySelectorAll(".wrap-img-page12 .imgCar");
-  if (!camera) {
-    console.log("Number of Files: ", files.length);
-  } else {
-    carouselSlide.innerHTML = `<img
-    src="${photoList}"
-    id="photolistmyspace"
-    alt="Space"
-    width="100%"
-    height="100%"
-  />`;
-    // photolistmyspace.src = photoList;
-    _media.push(urlString[0]);
-  }
+  // const carouselSlide = document.querySelector(".wrap-img-page12");
+  // carouselImages = document.querySelectorAll(".wrap-img-page12 .imgCar");
+  // if (!camera) {
+  //   console.log("Number of Files: ", files.length);
+  // } else {
+  //   carouselSlide.innerHTML = `<img
+  //   src="${photoList}"
+  //   id="photolistmyspace"
+  //   alt="Space"
+  //   width="100%"
+  //   height="100%"
+  // />`;
+  //   // photolistmyspace.src = photoList;
+  //   _media.push(urlString[0]);
+  // }
 
   titlereview.value = propertytitle.value;
   descriptionreview.value = propertydescription.value;
@@ -1417,45 +1415,6 @@ reviewfieldsbtn.addEventListener("click", () => {
   //   _media.push(urlString[0]);
   // }
 });
-// Image Container
-const carouselSlide = document.querySelector(".wrap-img-page12");
-const leftBtn = document.querySelector(".selectorImg.left");
-const rightBtn = document.querySelector(".selectorImg.right");
-rightBtn.addEventListener("click", (e) => {
-  if (!camera) {
-    rightslide(carouselSlide, carouselImages);
-  }
-});
-
-leftBtn.addEventListener("click", (e) => {
-  if (!camera) {
-    leftslide(carouselSlide, carouselImages);
-  }
-});
-
-window.addEventListener("resize", () => {
-  let x = window.matchMedia("(min-width: 891px)");
-  if (x.matches) {
-    carouselSlide.style.transform = "translateX(0)";
-  } else {
-    carouselSlide.style.transition = "none";
-    let size = carouselImages[0].clientWidth;
-    carouselSlide.style.transform = "translateX(" + -size * counter + "px)";
-  }
-});
-
-// Select featured image!
-// let featureImageNum;
-// const imageContainerSelected = document.querySelector(".wrap-img-page12");
-
-// imageContainerSelected.addEventListener("click", (e) => {
-//   console.log(e.target);
-//   e.target.classList.toggle("selectImage");
-//   featureImageNum = Array.from(imageContainerSelected.children).indexOf(
-//     e.target
-//   );
-//   console.log(featureImageNum);
-// });
 
 // Create a property function
 let propertyInfo;
@@ -1471,10 +1430,6 @@ createPropertybtn.addEventListener("click", async (event) => {
   const allFiles = base64ToFiles(FILES_AS_BASE64);
   const urlStringArray = await uploadFiles2(allFiles);
   _media = [...urlStringArray];
-
-
-
-
 
   // parse _equipment info
   // Remove Equipments with Price 0 to show or save in database
@@ -1537,24 +1492,23 @@ btnListings.addEventListener(
   () => (window.location.href = window.origin)
 );
 
-
 // Patch to hide transition
 setTimeout(() => {
-  const headerprofileWrapper = document.querySelector("header .profile-wrapper");
+  const headerprofileWrapper = document.querySelector(
+    "header .profile-wrapper"
+  );
   headerprofileWrapper.classList.remove("hide");
 }, 300);
 
-
-
-
 // Update GRID PAGE 2
 
-const toBase64 = file => new Promise((resolve, reject) => {
-  const reader = new FileReader();
-  reader.readAsDataURL(file);
-  reader.onload = () => resolve(reader.result);
-  reader.onerror = error => reject(error);
-});
+const toBase64 = (file) =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
+  });
 
 const uploadButton = document.getElementById("upload-img-page-2");
 uploadButton.addEventListener("change", async (event) => {
@@ -1563,28 +1517,24 @@ uploadButton.addEventListener("change", async (event) => {
   const allImages = [...uploadButton.files];
 
   // validation to do nothing
-  if(!allImages.length) return;
-
+  if (!allImages.length) return;
 
   const totalLength = FILES_AS_BASE64.length + allImages.length;
 
-  if(totalLength > 5) {
-    alert("Maximum allowed images is 5")
-    return
+  if (totalLength > 5) {
+    alert("Maximum allowed images is 5");
+    return;
   }
 
-
-  for(let i = 0; i < allImages.length; i++) {
-    let x  = await toBase64(allImages[i])
-    FILES_AS_BASE64.push(x)
+  for (let i = 0; i < allImages.length; i++) {
+    let x = await toBase64(allImages[i]);
+    FILES_AS_BASE64.push(x);
   }
-  console.log(FILES_AS_BASE64)
+  console.log("These are the files URL: ", FILES_AS_BASE64);
   // convert base64
 
-  infuseImages(FILES_AS_BASE64)
-})
-
-
+  infuseImages(FILES_AS_BASE64);
+});
 
 function infuseImages(base64List) {
   const gridWrapper = document.querySelector(".images-grid-wrapper");
@@ -1592,22 +1542,17 @@ function infuseImages(base64List) {
   gridWrapper.innerHTML = "";
 
   base64List.forEach((base64, idx) => {
-
-      if(idx == 0) {
-        gridWrapper.innerHTML += `<div class="page2-img-container feature-img-container" data-img-idx=${idx} style="background-image: url(${base64})" >
+    if (idx == 0) {
+      gridWrapper.innerHTML += `<div class="page2-img-container feature-img-container" data-img-idx=${idx} style="background-image: url(${base64})" >
         <span class="cross-page2" data-img-idx-cross=${idx}  >X</span>
-        </div>`
-      } else {
-        gridWrapper.innerHTML += `<div class="page2-img-container" data-img-idx=${idx} style="background-image: url(${base64})" >
+        </div>`;
+    } else {
+      gridWrapper.innerHTML += `<div class="page2-img-container" data-img-idx=${idx} style="background-image: url(${base64})" >
         <span class="cross-page2" data-img-idx-cross=${idx} >X</span>
-        </div>`
-      }
-
-  })
-
+        </div>`;
+    }
+  });
 }
-
-
 
 // camera streamer event listener
 const cameraStreamerBtn = document.getElementById("camera-stremer");
@@ -1617,15 +1562,13 @@ cameraStreamerBtn.addEventListener("click", () => {
   gridDisplay.classList.add("hide");
   actionBtns.classList.add("hide");
 
-
   // show streamer
 
   const streamer = document.querySelector(".camera-streamer");
   streamer.classList.remove("hide");
 
   streamMyCamera();
-
-})
+});
 
 // ===============================> Change Feature Image Event Listeners and Handle Cross
 
@@ -1633,58 +1576,51 @@ const gridWrapper = document.querySelector(".images-grid-wrapper");
 gridWrapper.addEventListener("click", (event) => {
   // if image div is target
   const target = event.target;
-  if(target.classList.contains("page2-img-container")) {
+  if (target.classList.contains("page2-img-container")) {
     const idx = Number(target.getAttribute("data-img-idx"));
-    if(idx === 0) return;
-    
+    if (idx === 0) return;
+
     // change the positions in the array then infuse the list again
     FILES_AS_BASE64.unshift(FILES_AS_BASE64.splice(idx, 1)[0]);
-    infuseImages(FILES_AS_BASE64)
+    infuseImages(FILES_AS_BASE64);
   }
 
   // handle cross event
-  if(target.classList.contains("cross-page2")) {
+  if (target.classList.contains("cross-page2")) {
     const idx = Number(target.getAttribute("data-img-idx-cross"));
     FILES_AS_BASE64.splice(idx, 1)[0];
     infuseImages(FILES_AS_BASE64);
   }
-})
-
-
+});
 
 // ================================> Mobile Camera Event Listeners
 
 const mobileCameraPhoto = document.getElementById("mobile-app-camera");
 mobileCameraPhoto.addEventListener("change", async () => {
-
-  if(FILES_AS_BASE64.length == 5) {
-    alert("Maximum allowed images is 5")
+  if (FILES_AS_BASE64.length == 5) {
+    alert("Maximum allowed images is 5");
   }
 
   const files = mobileCameraPhoto.files;
 
-
   const gridWrapper = document.querySelector(".images-grid-wrapper");
   gridWrapper.innerHTML = "";
-  
-  gridWrapper.innerHTML += files
+
+  gridWrapper.innerHTML += files;
 
   // push it
-  let imageBase64  = await toBase64(files[0])
-  FILES_AS_BASE64.push(imageBase64)
-  
+  let imageBase64 = await toBase64(files[0]);
+  FILES_AS_BASE64.push(imageBase64);
 
   // infuse in html
-  infuseImages(FILES_AS_BASE64)
-})
-
+  infuseImages(FILES_AS_BASE64);
+});
 
 // ================================> Desktop Camera Event Listeners
 
 // user picture event
 const usePicture = document.querySelector("#use-picture");
 usePicture.addEventListener("click", () => {
-
   // show image container
   const gridDisplay = document.querySelector(".images-wrapper");
   const actionBtns = document.querySelector(".page2-action-btns");
@@ -1697,49 +1633,40 @@ usePicture.addEventListener("click", () => {
 
   toggleImageState();
 
-
   // ? INFUSE IMAGES AGAIN
   // append the clicked image to files list
-  const clickedBase64 = (document.querySelector(".display-clicked-image")).src
+  const clickedBase64 = document.querySelector(".display-clicked-image").src;
   FILES_AS_BASE64.push(clickedBase64);
-  infuseImages(FILES_AS_BASE64)
-})
-
-
+  infuseImages(FILES_AS_BASE64);
+});
 
 // capture button event
-
 
 const captureButtonPage2 = document.querySelector("#capture-btn-page2");
 
 // Capture the picture when the button is clicked
 captureButtonPage2.addEventListener("click", () => {
-
   // return if already has 5 photos
-  if(FILES_AS_BASE64.length === 5) {
+  if (FILES_AS_BASE64.length === 5) {
     alert("Maximum Photos allowed are 5");
     return;
   }
-
 
   const video = document.querySelector(".camera-streamer-video-player");
   // Create a canvas element to capture the image
   const canvas = document.createElement("canvas");
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
-  canvas
-    .getContext("2d")
-    .drawImage(video, 0, 0, canvas.width, canvas.height);
+  canvas.getContext("2d").drawImage(video, 0, 0, canvas.width, canvas.height);
 
   // display captured image
-  displayCapturedImage(canvas)
+  displayCapturedImage(canvas);
 });
-
 
 function streamMyCamera() {
   const video = document.querySelector(".camera-streamer-video-player");
-    
-    // Check if the browser supports the camera API
+
+  // Check if the browser supports the camera API
   if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     // Set up the camera stream
     navigator.mediaDevices
@@ -1748,7 +1675,6 @@ function streamMyCamera() {
         // Attach the camera stream to the video element
         video.srcObject = stream;
         video.play();
-
       })
       .catch((error) => {
         console.error("Error accessing camera:", error);
@@ -1758,7 +1684,6 @@ function streamMyCamera() {
   }
 }
 
-
 function displayCapturedImage(canvas) {
   const previewImage = document.querySelector(".display-clicked-image");
   // Convert the canvas image to a data URL and display it in the preview element
@@ -1767,46 +1692,87 @@ function displayCapturedImage(canvas) {
   photoList = previewImage.src;
 
   // clicked image state
-  toggleImageState()
+  toggleImageState();
 }
-
 
 function toggleImageState() {
   // activate use photo button
-  const actionBtnWrapper = (document.querySelector(".camera-streamer-btns")).children;
-  const actionBtnArray = [...actionBtnWrapper]
+  const actionBtnWrapper = document.querySelector(
+    ".camera-streamer-btns"
+  ).children;
+  const actionBtnArray = [...actionBtnWrapper];
 
-
-  actionBtnArray.forEach(elem => {
-    elem.classList.toggle("hide")
-  })
+  actionBtnArray.forEach((elem) => {
+    elem.classList.toggle("hide");
+  });
 
   // display clicked photo
-  const videoWrapper = (document.querySelector(".display-wrapper-camera-streamer")).children;
+  const videoWrapper = document.querySelector(
+    ".display-wrapper-camera-streamer"
+  ).children;
 
   const videoWrapperElements = [...videoWrapper];
-  videoWrapperElements.forEach(elem => {
-    elem.classList.toggle("hide")
-  })
+  videoWrapperElements.forEach((elem) => {
+    elem.classList.toggle("hide");
+  });
 }
-
 
 // =====================================> Review Image Page
 
 window.addEventListener("hashchange", (event) => {
-
-  if(window.location.hash === "#page12") {
+  if (window.location.hash === "#page12") {
     const previewImageGrid = document.querySelector(".wrap-img-page12");
     previewImageGrid.innerHTML = "";
 
     FILES_AS_BASE64.forEach((base64, idx) => {
-      if(idx == 0) {
-        previewImageGrid.innerHTML += `<div class="page12-img-container feature-img-page12" data-img-idx=${idx} style="background-image: url(${base64})" ></div>`
+      if (idx == 0) {
+        previewImageGrid.innerHTML += `<div class="page12-img-container feature-img-page12" data-img-idx=${idx} style="background-image: url(${base64})" ></div>`;
       } else {
-        previewImageGrid.innerHTML += `<div class="page12-img-container" data-img-idx=${idx} style="background-image: url(${base64})" ></div>`
+        previewImageGrid.innerHTML += `<div class="page12-img-container" data-img-idx=${idx} style="background-image: url(${base64})" ></div>`;
       }
-    })
-
+    });
+    size = previewImageGrid.firstChild.clientWidth;
   }
+});
 
+// =================================== Carousel Images Page 12
+// Image Container
+const carouselSlide = document.querySelector(".wrap-img-page12");
+// const carouselImages = document.querySelectorAll(".page12-img-container");
+const prevBtn = document.querySelector(".selectorImg.left");
+const nextBtn = document.querySelector(".selectorImg.right");
+let counter = 0;
+
+// ====================== Wait to load images to set size
+// carouselImages[0].addEventListener("load", () => {
+//   size = carouselImages[0].clientWidth;
+//   carouselSlide.style.transform = `translateX(${-size * counter}px)`;
+// });
+// ====================== Next Button Listener
+nextBtn.addEventListener("click", () => {
+  console.log("counter =", counter);
+  const carouselImages = document.querySelectorAll(".page12-img-container");
+  if (counter > carouselImages.length - 2) {
+    carouselSlide.style.transform = `translateX(0px)`;
+    counter = 0;
+  } else {
+    console.log("the size is: ", size);
+    carouselSlide.style.transition = `transform 0.4s ease-in-out`;
+    counter++;
+    carouselSlide.style.transform = `translateX(${-size * counter}px)`;
+  }
+});
+// ====================== Back Button Listener
+prevBtn.addEventListener("click", () => {
+  if (counter <= 0) return;
+  carouselSlide.style.transition = `transform 0.4s ease-in-out`;
+  counter--;
+  carouselSlide.style.transform = `translateX(${-size * counter}px)`;
+});
+// ====================== Responsiveness
+window.addEventListener("resize", () => {
+  const carouselImages = document.querySelectorAll(".page12-img-container");
+  carouselSlide.style.transition = "none";
+  size = carouselImages[0].clientWidth;
+  carouselSlide.style.transform = "translateX(" + -size * counter + "px)";
 });
