@@ -27,6 +27,7 @@ import QuantityInput from "../utility/quantity.js";
 // import { RangePlugin } from "@easepick/range-plugin";
 import { calendarBook } from "../utility/datePicker.js";
 import * as L from "../node_modules/leaflet/dist/leaflet.js";
+import { userName } from "../modules/user.js"
 
 // modules
 import { addOfflineSupport } from "../modules/offline";
@@ -1775,4 +1776,29 @@ window.addEventListener("resize", () => {
   carouselSlide.style.transition = "none";
   size = carouselImages[0].clientWidth;
   carouselSlide.style.transform = "translateX(" + -size * counter + "px)";
+});
+
+
+
+
+
+// show user name in header
+
+const transitionNameElement = document.querySelector("#transition-username");
+const popupNameElement = document.querySelector("#popup-username");
+const transitionDiffElement = document.querySelector(".user-name");
+
+window.addEventListener("DOMContentLoaded", async (event) => {
+    // update name in both elements
+    const uname = await userName();
+    if(uname) {
+      popupNameElement.innerHTML = uname;
+      transitionNameElement.innerHTML = uname;
+      transitionDiffElement.innerHTML = uname;
+    } else {
+      console.log(popupNameElement)
+      popupNameElement.innerHTML = "User Name";
+      transitionNameElement.innerHTML = "User Name";
+      transitionDiffElement.innerHTML = "User Name";
+    }
 });

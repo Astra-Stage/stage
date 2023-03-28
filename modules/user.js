@@ -35,4 +35,25 @@ async function loggingOut() {
     });
 }
 
-export { loggingOut, userState };
+
+// USER STATE
+async function userName() {
+  try {
+    const user = await new Promise((resolve, reject) => {
+      onAuthStateChanged(auth, resolve);
+    });
+    if (user) {
+      const { uid, displayName, email, photoURL } = user;
+      // await addProfile(uid, { displayName, email, photoURL });
+      return displayName;
+    } else {
+      return false;
+    }
+  } catch (error) {
+    console.error(error);
+    throw new Error("An error bro");
+  }
+}
+
+
+export { loggingOut, userState, userName };

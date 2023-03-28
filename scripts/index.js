@@ -8,6 +8,8 @@ import { loggingOut, userState } from "../modules/user.js";
 import { whereAmI } from "../modules/geolocation.js";
 import { addOfflineSupport } from "../modules/offline";
 
+import { userName } from "../modules/user.js"
+
 // import queries
 // import { addProfile } from "../query/userProfile.js";
 
@@ -229,3 +231,26 @@ setTimeout(() => {
   const headerprofileWrapper = document.querySelector("header .profile-wrapper");
   headerprofileWrapper.classList.remove("hide");
 }, 300);
+
+
+
+// show user name in header
+
+const transitionNameElement = document.querySelector("#transition-username");
+const popupNameElement = document.querySelector("#popup-username");
+const transitionDiffElement = document.querySelector(".user-name");
+
+window.addEventListener("DOMContentLoaded", async (event) => {
+    // update name in both elements
+    const uname = await userName();
+    if(uname) {
+      popupNameElement.innerHTML = uname;
+      transitionNameElement.innerHTML = uname;
+      transitionDiffElement.innerHTML = uname;
+    } else {
+      console.log(popupNameElement)
+      popupNameElement.innerHTML = "User Name";
+      transitionNameElement.innerHTML = "User Name";
+      transitionDiffElement.innerHTML = "User Name";
+    }
+});
