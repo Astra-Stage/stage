@@ -146,61 +146,73 @@ module.exports = {
 
     // Add All HTML PAGES AS SUCH
     new HtmlWebpackPlugin({
+      favicon: './assets/svg-icons/Logo-White.svg',
       template: "./pages/index.html",
       filename: "index.html",
       chunks: ["index"],
     }),
     new HtmlWebpackPlugin({
+      favicon: './assets/svg-icons/Logo-White.svg',
       template: "./pages/about-us.html",
       filename: "about-us.html",
       chunks: ["aboutUs"],
     }),
     new HtmlWebpackPlugin({
+      favicon: './assets/svg-icons/Logo-White.svg',
       template: "./pages/all-places.html",
       filename: "all-places.html",
       chunks: [],
     }),
     new HtmlWebpackPlugin({
+      favicon: './assets/svg-icons/Logo-White.svg',
       template: "./pages/explore.html",
       filename: "explore.html",
       chunks: ["explore"],
     }),
     new HtmlWebpackPlugin({
+      favicon: './assets/svg-icons/Logo-White.svg',
       template: "./pages/explore-spaces.html",
       filename: "explore-spaces.html",
       chunks: ["exploreSpaces"],
     }),
     new HtmlWebpackPlugin({
+      favicon: './assets/svg-icons/Logo-White.svg',
       template: "./pages/property.html",
       filename: "property.html",
       chunks: ["property"],
     }),
     new HtmlWebpackPlugin({
+      favicon: './assets/svg-icons/Logo-White.svg',
       template: "./pages/booking-confirmation.html",
       filename: "booking-confirmation.html",
       chunks: ["bookingConfirmation"],
     }),
     new HtmlWebpackPlugin({
+      favicon: './assets/svg-icons/Logo-White.svg',
       template: "./pages/booking-confirmation-success.html",
       filename: "booking-confirmation-success.html",
       chunks: ["bookingConfirmationSuccess"],
     }),
     new HtmlWebpackPlugin({
+      favicon: './assets/svg-icons/Logo-White.svg',
       template: "./pages/my-bookings.html",
       filename: "my-bookings.html",
       chunks: ["myBookings"],
     }),
     new HtmlWebpackPlugin({
+      favicon: './assets/svg-icons/Logo-White.svg',
       template: "./pages/list-my-space.html",
       filename: "list-my-space.html",
       chunks: ["listmyspace"],
     }),
     new HtmlWebpackPlugin({
+      favicon: './assets/svg-icons/Logo-White.svg',
       template: "./pages/login-modal.html",
       filename: "login-modal.html",
       chunks: ["loginModal"],
     }),
     new HtmlWebpackPlugin({
+      favicon: './assets/svg-icons/Logo-White.svg',
       template: "./pages/phone-auth.html",
       filename: "phone-auth.html",
       chunks: ["phoneVer"],
