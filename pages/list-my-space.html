@@ -281,7 +281,7 @@
               ></div>
             </div>
             <div class="navigation">
-              <a id="addressvalidation" href="#page4" class="yellowbutton"
+              <a id="addressvalidation" href="#page2" class="yellowbutton"
                 >Next</a
               >
               <a href="#page1" class="blackbutton backButtonAddress">Back</a>
@@ -290,7 +290,76 @@
         </div>
       </div>
 
-      <div class="wrapper-page-4-5-6">
+      <div class="wrapper-page-2" id="page2">
+        <progress
+        class="progress progressDesktop-2"
+        value="20"
+        max="70"
+      ></progress>
+
+      <div class="inner-wrapper-2">
+        <h2>Add photos of your space</h2>
+        <!-- camera streamer -->
+        <div class="camera-streamer hide">
+
+          <div class="display-wrapper-camera-streamer">
+            <video class="camera-streamer-video-player" autoplay></video>
+            <img class="display-clicked-image hide" />
+          </div>
+
+          <div class="camera-streamer-btns">
+            <input type="button" id="capture-btn-page2" value="Click Picture">
+            <input type="button" id="use-picture" value="Use Picture" class="hide">
+          </div>
+
+        </div>
+        <!-- images grid wrapper -->
+        <div class="images-wrapper">
+          <div class="images-grid-wrapper">
+            <div class="page2-img-container feature-img-container">
+              
+            </div>
+            <div class="page2-img-container">
+              
+            </div>
+            <div class="page2-img-container">
+              
+            </div>
+            <div class="page2-img-container">
+             
+            </div>
+            <div class="page2-img-container">
+             
+            </div>
+          </div>
+        </div>
+        <div class="page2-action-btns">
+          <div class="image-action-btns">
+
+            <!-- common button -->
+            <label for="upload-img-page-2">Select files</label>
+            <input type="file" id="upload-img-page-2" name="uploadphoto" multiple class="hide">
+
+            <!-- opens in desktop -->
+            <input type="button" value="Capture Photo" id="camera-stremer">
+
+
+            <!-- opens in mobile -->
+            <label for="mobile-app-camera">Open Camera</label>
+            <input type="file" accept="image/*" capture="camera" id="mobile-app-camera" class="hide" >
+
+          </div>
+      
+          <div class="navigation navigation-page2-btns">
+              <a id="nextvideo" href="#page7">Next</a>
+              <a href="#page3">Back</a>
+          </div>
+        </div>
+        </div>
+      </div>
+
+
+      <div class="wrapper-page-4-5-6 hide">
         <progress
           class="progress progressDesktop-4-5-6"
           value="20"
@@ -484,7 +553,8 @@
           <div class="navigation">
             <!-- <a href="#page9" class="yellowbutton">Next</a> -->
             <button id="nextpage7to9" class="yellowbutton">Next</button>
-            <button class="blackbutton" id="backToPhotos">Back</button>
+            <!-- <button class="blackbutton" id="backToPhotos">Back</button> -->
+            <a href="#page2">Back</a>
           </div>
         </div>
       </div>
@@ -884,18 +954,15 @@
               </div>
               <div class="wrap-img-page12">
                 <img
-                  class="imgCar"
+                  class="page12-img-container"
                   src="../assets/img/photographer.jpg"
                   alt="#"
                 />
-
-                <!-- <img
-                  src=""
-                  id="photolistmyspace"
-                  alt="Space"
-                  width="100%"
-                  height="100%"
-                /> -->
+                <img
+                class="page12-img-container"
+                src="../assets/img/musician.jpg"
+                alt="#"
+              />
               </div>
             </div>
             <form id="reviewform">
