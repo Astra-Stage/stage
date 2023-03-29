@@ -201,7 +201,7 @@ input {
   font-family: "Fira Sans", sans-serif;
   font-size: var(--base-size);
   padding: var(--padding-3);
-  border: 1px solid var(--tertiary-text-dm);
+  border: 1px solid #fff;
   border-radius: var(--border-radius-base);
   outline: none;
   background-color: var(--primary-black);
