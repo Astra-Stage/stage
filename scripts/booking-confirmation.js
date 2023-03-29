@@ -114,11 +114,11 @@ function registerInvoiceBtn() {
     const invoiceWrapper = document.querySelector(".booking-information-wrapper");
     const invoiceBtn = document.getElementById("invoice-btn");
     invoiceBtn.addEventListener("click", () => {
-        
+
         html2pdf()
         .from(invoiceWrapper)
         .set({
-            filename: 'your-filename.pdf',
+            filename: BOOKING_INFO?.propertyTitle + "-invoice",
             html2canvas: {
             // This option is used to remove the "display: none" elements
             // from the PDF

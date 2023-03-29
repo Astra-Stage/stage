@@ -30,7 +30,7 @@ main ul {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+}
 
 section h2 {
     font-size: var(--tagline-font-size);
@@ -53,7 +53,7 @@ section h2 {
     gap: 1.5rem;
 }
 
-.confirmed-booking-info ul li > span:nth-child(2) {
+.confirmed-booking-info ul li>span:nth-child(2) {
     text-align: right;
 }
 
@@ -65,13 +65,14 @@ section h2 {
     background-color: var(--body-background-color);
 }
 
-.booking-information-wrapper section:nth-child(2) > ul, .booking-information-wrapper section:nth-child(3) > div {
+.booking-information-wrapper section:nth-child(2)>ul,
+.booking-information-wrapper section:nth-child(3)>div {
     border: 1px solid var(--text-color);
     border-radius: var(--img-border-radius);
     padding: 1rem;
 }
 
-.booking-information-wrapper section ul li{
+.booking-information-wrapper section ul li {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -83,13 +84,15 @@ section h2 {
     gap: 1rem;
 }
 
-.confirm-booking-btn-wrapper, .download-invoice-btn-wrapper {
+.confirm-booking-btn-wrapper,
+.download-invoice-btn-wrapper {
     display: grid;
     grid-template-columns: 1fr;
 }
 
 
-.confirm-booking-btn-wrapper input, .download-invoice-btn-wrapper input {
+.confirm-booking-btn-wrapper input,
+.download-invoice-btn-wrapper input {
     margin-top: 1rem;
     width: 100%;
     padding: .5rem;
@@ -100,4 +103,14 @@ section h2 {
     font-weight: 700;
 
     border: none;
-  }
+}
+
+
+.parent-wrapper {
+    margin-left: -1rem;
+    margin-right: -1rem;
+}
+
+.booking-information-wrapper {
+    padding: 0 1rem;
+}
