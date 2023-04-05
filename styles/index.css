@@ -24,7 +24,7 @@ h1 {
 }
 
 h1 a {
-  color: white;
+  color: #f8f8f8;
 }
 
 /* img {
@@ -142,7 +142,7 @@ a {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: white;
+    background-color: #f8f8f8;
     transition: all 0.25s ease-in-out;
   }
 
@@ -172,7 +172,7 @@ a {
 
 .video-container .text-wrapper {
   position: absolute;
-  color: white;
+  color: #f8f8f8;
   z-index: 10;
   top: 50%;
   right: 50%;
@@ -213,21 +213,63 @@ a {
 .tab {
   font-size: 0.75rem;
   font-family: "Fira Sans", sans-serif;
-  padding: 0.5rem;
+  padding: 0.5rem 0;
   flex: 1 0 30%;
-  border-radius: 0.5rem;
+  /* border-radius: 0.5rem; */
   cursor: pointer;
-  max-width: 10rem;
+  max-width: 6.5rem;
   transition: all 0.25s ease-in-out;
 
-  color: white;
-  background-color: rgba(255, 255, 255, 0.16);
+  color: #f8f8f8;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .active {
-  color: #101010;
-  background-color: white;
+  /* background-color: white; */
+  border-bottom: #f8f8f8 solid 1px;
+  font-weight: bold;
 }
+
+.text-wrapper h1.explore {
+  background: linear-gradient(to right, #F8f8f8 20%, #a98aff 40%, #a98aff 60%, #F8f8f8 80%);
+  background-size: 200% auto;
+  color: #f8f8f8;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* animation: animate 2s ease-in-out infinite; */
+  animation: shine 2s linear infinite;
+}
+
+.text-wrapper h1.list-space {
+  background: linear-gradient(to right, #F8f8f8 20%, #ffe45a 40%, #ffe45a 60%, #F8f8f8 80%);
+  background-size: 200% auto;
+  color: #f8f8f8;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* animation: animate 2s ease-in-out infinite; */
+  animation: shine 2s linear infinite;
+}
+
+.text-wrapper h1.showcase {
+  background: linear-gradient(to right, #F8f8f8 20%, #ea618c 40%, #ea618c 60%, #F8f8f8 80%);
+  background-size: 200% auto;
+  color: #f8f8f8;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* animation: animate 2s ease-in-out infinite; */
+  animation: shine 2s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+
 
 /* header final touch */
 .desktop-profile.scaleMenu li:nth-of-type(3),
